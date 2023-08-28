@@ -1,0 +1,122 @@
+#selectTeam {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100vh;
+  background: var(--primaryColor);
+  width: 100vw;
+  top: 0;
+}
+
+.selectTeam__container {
+  background: var(--secondaryColor);
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 25%;
+  height: 55%;
+  box-shadow: rgb(255 255 255 / 24%) 0px 3px 8px;
+}
+.selectTeam__container-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  cursor: pointer;
+  z-index: 10;
+}
+.selectTeam__container-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  width: 100%;
+}
+form.selectTeam__form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 40%;
+}
+
+form.selectTeam__form > div {
+  display: flex;
+}
+form.selectTeam__form > p {
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #5b5b5b;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+}
+.selectTeam__container-search-input {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+.selectTeam__container-search-input input {
+  width: 100%;
+  border: unset;
+  border-bottom: 1px solid #5b5b5b;
+  background-color: transparent;
+  color: #5b5b5b;
+  padding-bottom: 0.4rem;
+}
+.selectTeam__container-search-input button {
+  background: transparent;
+  border: unset;
+  text-transform: uppercase;
+  position: absolute;
+  right: 0px;
+  top: 2px;
+  cursor: pointer;
+  color: #5b5b5b;
+  font-weight: 900;
+  transition: 0.5s ease;
+}
+.selectTeam__container-search-input button:hover {
+  color: black;
+  transition: 0.5s ease;
+}
+.selectTeam__container-search-input input:focus {
+  outline: none;
+}
+/* E---------------------------- SEARCH RESULT ----------------------------*/
+.search__results {
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 4rem;
+  gap: 1.5rem;
+  overflow: auto;
+  width: 100%;
+  height: 325px;
+}
+.selectTeam__result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  width: 100%;
+}
+.selectTeam__result-container img {
+  width: 95px;
+}
+.selectTeam__result {
+  width: 25%;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.selectTeam__result:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+}

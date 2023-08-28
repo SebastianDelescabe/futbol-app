@@ -1,0 +1,117 @@
+#team {
+  background: var(--primaryColor);
+}
+.team__header {
+  background-color: red;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.team__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: calc(100vh - 150px);
+}
+.team__info-section {
+  height: 200px;
+  width: 200px;
+}
+/* ---------------------------LEAGUE RANK---------------------------- */
+.leagueRank__container-info {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 2rem;
+}
+.leagueRank__container-info div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.leagueRank__container-info img {
+  width: 100px;
+  height: 100px;
+}
+.leagueRank__container-info > span {
+  margin-left: 1rem;
+  padding-top: 1rem;
+}
+/* ---------------------------LEAGUE TEAM---------------------------- */
+#leagueTeam {
+  display: flex;
+  flex-direction: column;
+}
+.leagueRank__teams {
+  overflow: auto;
+  height: 450px;
+}
+.leagueTeam__container img {
+  width: 40px;
+}
+.leagueTeam__container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+.leagueTeam__container-name {
+  width: 160px;
+}
+.leagueTeam__container-position {
+  width: 35px;
+}
+
+/* --------------------------INFO TEAM --------------------------*/
+.team__info h1,
+.team__info h2.team__info span,
+.team__info p {
+  color: white;
+}
+.infoTeam__container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border: 1px solid #535353;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1rem;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.infoTeam__container-team-text {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.infoTeam__container-team-text img {
+  width: 70px;
+}
+.infoTeam__container-stadium-text img {
+  width: 300px;
+}
+.infoTeam__container-stadium-text > p:first-child {
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 17px;
+}
+.infoTeam__container-stadium-text > p {
+  text-align: center;
+}
+.infoTeam__container-team-text h1 {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 900;
+}
+.infoTeam__container-stadium-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.infoTeam__container:hover {
+  transform: scale(1.04);
+  transition: 0.5s ease;
+}
