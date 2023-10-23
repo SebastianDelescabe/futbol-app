@@ -8,9 +8,13 @@
   width: 100vw;
   top: 0;
 }
+div#selectTeam {
+  background: url("https://i.ibb.co/vzLHnSy/584533.jpg");
+  background-size: cover;
+}
 
 .selectTeam__container {
-  background: var(--secondaryColor);
+  background: #97979740;
   width: 60%;
   display: flex;
   align-items: center;
@@ -19,6 +23,7 @@
   top: 25%;
   height: 55%;
   box-shadow: rgb(255 255 255 / 24%) 0px 3px 8px;
+  border-radius: 10px;
 }
 .selectTeam__container-close {
   position: absolute;
@@ -27,6 +32,8 @@
   margin: 1rem;
   cursor: pointer;
   z-index: 10;
+  font-weight: 700;
+  color: var(--secondaryColor);
 }
 .selectTeam__container-search {
   display: flex;
@@ -51,7 +58,7 @@ form.selectTeam__form > div {
 form.selectTeam__form > p {
   font-weight: 900;
   text-transform: uppercase;
-  color: #5b5b5b;
+  color: var(--secondaryColor);
   letter-spacing: 0.5px;
   font-size: 15px;
 }
@@ -64,9 +71,9 @@ form.selectTeam__form > p {
 .selectTeam__container-search-input input {
   width: 100%;
   border: unset;
-  border-bottom: 1px solid #5b5b5b;
+  border-bottom: 1px solid var(--secondaryColor);
   background-color: transparent;
-  color: #5b5b5b;
+  color: var(--secondaryColor);
   padding-bottom: 0.4rem;
 }
 .selectTeam__container-search-input button {
@@ -77,18 +84,19 @@ form.selectTeam__form > p {
   right: 0px;
   top: 2px;
   cursor: pointer;
-  color: #5b5b5b;
+  color: var(--secondaryColor);
   font-weight: 900;
   transition: 0.5s ease;
 }
 .selectTeam__container-search-input button:hover {
-  color: black;
+  color: var(--secondaryColor);
   transition: 0.5s ease;
 }
 .selectTeam__container-search-input input:focus {
   outline: none;
 }
-/* E---------------------------- SEARCH RESULT ----------------------------*/
+
+/* ---------------------------- SEARCH RESULT ----------------------------*/
 .search__results {
   overflow: auto;
   display: flex;
@@ -105,8 +113,16 @@ form.selectTeam__form > p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.3rem;
-  width: 100%;
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #535353;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1rem;
+  transition: 0.5s ease;
+  cursor: pointer;
+  color: var(--secondaryColor);
+  background: #dddddddb;
 }
 .selectTeam__result-container img {
   width: 95px;
@@ -115,8 +131,4 @@ form.selectTeam__form > p {
   width: 25%;
   cursor: pointer;
   transition: 0.5s ease;
-}
-.selectTeam__result:hover {
-  transform: scale(1.05);
-  transition: 0.5s;
 }

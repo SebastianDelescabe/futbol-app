@@ -1,11 +1,10 @@
-import { LeagueTeam } from "./LeagueTeam"
+import { LeagueTable } from "./LeagueTable";
 
 export const LeagueRank = ({ data }) => {
-
-    let name = data.league.name
-    let country = data.league.country
-    let logo = data.league.logo
-    let leaguesTeams = data.league.standings[0]
+    let name = data.league.name;
+    let country = data.league.country;
+    let logo = data.league.logo;
+    let leagues = data.league.standings;
 
     return (
         <div id="leagueRank">
@@ -15,16 +14,23 @@ export const LeagueRank = ({ data }) => {
                         <img src={logo} alt="" />
                         <h1>{name}</h1>
                     </div>
-                    <span>{country}</span>
+                    <span><em>{country}</em></span>
                 </div>
-                <div className="leagueRank__teams">
+                <div className="leagueRank__table">
                     {
-                        leaguesTeams && leaguesTeams.map(team => (
-                            <LeagueTeam key={team.team.id} data={team} />
+                        leagues.map((league, index) => (
+                            <>
+                                {
+                                    leagues.length > 1 && <span className="leagueRank__group-title">Grupo {index + 1}</span>
+                                }
+                                <LeagueTable key={index} data={league} />
+                            </>
                         ))
                     }
                 </div>
             </div>
         </div>
-    )
+    );
 }
+
+

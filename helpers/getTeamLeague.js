@@ -10,7 +10,6 @@ export default async function getTeamLeague(teamID) {
     });
     let searchLeague = await response.json()
     let leagueID = searchLeague.response[0].league.id;
-
     /* let leagueID = 39 */
     return getLeagueRank(leagueID)
 }

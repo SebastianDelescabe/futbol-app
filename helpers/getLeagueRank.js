@@ -7,7 +7,6 @@ export default async function getLeagueRank(leagueID) {
         }
     })
     let leagueRank = await response.json()
-
     if (leagueRank.errors && leagueRank.errors.length != 0) {
         alert(leagueRank.errors.requests);
     } else {

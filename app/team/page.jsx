@@ -17,6 +17,8 @@ export default function Team() {
 
     const { teamID, teamInfo, teamPosition } = useSelector((state) => state.teamID.value);
 
+    console.log(teamPosition);
+
     const [leagueInfo, setLeagueInfo] = useState(false)
 
     useEffect(() => {
@@ -24,13 +26,14 @@ export default function Team() {
             getTeamLeague(teamID)
                 .then((response) => {
                     setLeagueInfo(response)
-                    console.log(leagueInfo);
-                    dispatch(getTeamPosition(leagueInfo))
                 })
         } else {
             router.push('/');
         }
     }, [teamID])
+
+
+    if (leagueInfo) dispatch(getTeamPosition(leagueInfo))
 
     return (
         <div id="team">
@@ -43,8 +46,8 @@ export default function Team() {
                     <LeagueRank data={leagueInfo} />
                 }
                 {
-                    teamInfo &&
-                    <InfoTeam data={teamInfo} />
+                    teamInfo && teamPosition &&
+                    <InfoTeam data={{ teamInfo, teamPosition }} />
                 }
             </div>
         </div>
