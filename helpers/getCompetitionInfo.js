@@ -1,4 +1,5 @@
-export default async function getLeagueRank(leagueID) {
+export default async function getCompetitionInfo(leagueID) {
+    console.log(leagueID);
     let response = await fetch(`https://v3.football.api-sports.io/standings?league=${leagueID}&season=2023`, {
         method: "GET",
         headers: {

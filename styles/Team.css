@@ -54,8 +54,7 @@ span.leagueRank__group-title {
 .leagueRank__container-info {
   display: flex;
   width: 100%;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-between;
 }
 
 .leagueRank__container-info span {
@@ -64,22 +63,29 @@ span.leagueRank__group-title {
 
 .leagueRank__container-info div {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   gap: 1rem;
-  width: 100%;
   height: 100%;
 }
 
 .leagueRank__container-info img {
-  width: 6%;
+  width: 20%;
   height: 100%;
 }
 
 .leagueRank__container-info > span {
   padding-top: 1rem;
 }
-
+.leagueRank__text-head {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.leagueRank__select-Competition {
+  display: flex;
+  flex-direction: column;
+}
 /* ---------------------------LEAGUE TEAM---------------------------- */
 .leagueTeam__container span {
   color: var(--secondaryColor);

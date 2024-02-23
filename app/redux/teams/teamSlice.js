@@ -6,7 +6,8 @@ export const selectedTeam = createSlice({
         value: {
             teamID: false,
             teamInfo: false,
-            teamPosition: false
+            teamPosition: false,
+            competitionID: false
         },
     },
     reducers: {
@@ -16,23 +17,26 @@ export const selectedTeam = createSlice({
         },
         getTeamPosition: (state, action) => {
             let teamID = state.value.teamID //equipo elegido
-            let leagueInfo = action.payload.league.standings //posiciones de la liga
-
-            console.log(teamID)
+            let leagueInfo = action.payload.league.standings[0] //posiciones de la liga
             //busca dentro de las posiciones de la liga, la posicion de mi equipo elegido y lo retorna
-            leagueInfo.forEach(league => {
-                league.find(element => {
-                    if (teamID === element.team.id) {
-                        console.log(element.rank);
-                        return state.value.teamPosition = element.rank
-                    } else {
-                        return state.value.teamPosition = '-'
-                    }
-                })
+
+            leagueInfo.forEach(positionInLeage => {
+                if (positionInLeage.team.id == teamID) {
+                    state.value.teamPosition = positionInLeage.rank
+                } else {
+                    state.value.teamPosition = '-'
+                    return
+                }
             });
-        }
+        },
+        getCompetitionId: (state, action) => {
+            //guarda id competicion
+            console.log(state, action, 'asdasdas');
+            state.value.competitionID = action.payload;
+            console.log(state.value.competitionID);
+        },
     }
 
 })
 
-export const { getInfoTeam, getTeamPosition } = selectedTeam.actions
+export const { getInfoTeam, getTeamPosition, getCompetitionId } = selectedTeam.actions

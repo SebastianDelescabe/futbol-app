@@ -6,6 +6,7 @@ export const LeagueTeam = ({ data }) => {
     let infoPlayed = data.all;
 
     let goalDif = [data.goalsDiff]; // [Cantidad goles a favor o en contra, color dependiendo los goles]
+
     if (goalDif > 0) {
         goalDif.push('#094')
     } else if (goalDif < 0) {

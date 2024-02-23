@@ -61,3 +61,18 @@ td {
   border: 1px solid #dddddd;
   padding: 8px;
 }
+
+select {
+  text-overflow: "";
+  border: 1px solid #c2c2c2;
+  border-radius: 1px;
+  font-family: "Interstate", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  height: 32px;
+  padding: 2px 5px 4px;
+  vertical-align: baseline;
+  width: max-content;
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}

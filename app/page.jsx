@@ -1,5 +1,3 @@
-'use client'
-
 import { SelectTeam } from '@/components/home/SelectTeam'
 
 export default function Home() {
