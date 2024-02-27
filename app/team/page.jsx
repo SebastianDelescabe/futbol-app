@@ -1,27 +1,27 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useRouter } from 'next/navigation';
 
 import { InfoTeam } from "@/components/team/InfoTeam"
 import { LeagueRank } from "@/components/team/LeagueRank";
 import { LiveMatchs } from "@/components/team/LiveMatchs";
+import { CupRank } from "@/components/team/CupRank";
+
 
 import getTeamCompetitions from "@/helpers/getTeamCompetitions";
 import getCompetitionInfo from "@/helpers/getCompetitionInfo";
-import { getTeamPosition } from "../redux/teams/teamSlice";
+import { HeaderCompetitionInfo } from "@/components/team/HeaderCompetitionInfo";
 
 export default function Team() {
 
     const router = useRouter();
-    const dispatch = useDispatch()
 
-    const { teamID, teamInfo, teamPosition, competitionID } = useSelector((state) => state.teamID.value);
+    const { teamID, teamInfo, competitionSelected } = useSelector((state) => state.teamID.value);
 
     const [competitionData, setCompetitionData] = useState(false)
     const [allCompetitions, setAllCompetitions] = useState(false)
-
 
     //Trae informacion de la liga y las competencias del equipo
     useEffect(() => {
@@ -36,41 +36,46 @@ export default function Team() {
         }
     }, [teamID]);
 
-    //Actualiza Posicion
-    useEffect(() => {
-        if (competitionData) {
-            dispatch(getTeamPosition(competitionData));
-        }
-    }, [competitionData]);
-
     //Actualiza segun la competicion elegida
     useEffect(() => {
-        if (competitionID) {
-            getCompetitionInfo(competitionID)
+        if (competitionSelected) {
+            getCompetitionInfo(competitionSelected[0], competitionSelected[1]) //ID, AÑO 
                 .then((response) => {
-                    console.log(response);
                     setCompetitionData(response)
                 })
         }
-    }, [competitionID]);
-
+    }, [competitionSelected]);
 
     return (
         <div id="team">
             <header className='team__header'>
                 <LiveMatchs />
             </header>
-            <div className='team__info'>
-                {
-                    competitionData &&
-                    <LeagueRank data={{ competitionData, allCompetitions }} />
-                }
-                {
-                    teamInfo && teamPosition && (
-                        <InfoTeam data={{ teamInfo, teamPosition }} />
-                    )
-                }
-            </div>
+            <section className='team__info'>
+                <div className="team__info-header">
+                    {
+                        allCompetitions && (
+                            <HeaderCompetitionInfo data={{ allCompetitions }} />
+                        )
+                    }
+                    {
+                        teamInfo && competitionData && (
+                            <InfoTeam data={{ teamInfo }} />
+                        )
+                    }
+                </div>
+                <div className="team__info-body">
+                    {
+                        competitionData && (
+                            competitionData.type === 'cup' ? (
+                                <CupRank data={{ competitionData }} />
+                            ) : (
+                                <LeagueRank data={{ competitionData }} />
+                            )
+                        )
+                    }
+                </div>
+            </section>
         </div>
     )
 }

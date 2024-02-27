@@ -2,7 +2,7 @@
 
 :root {
   --primaryColor: #edededfc;
-  --secondaryColor: #303030;
+  --secondaryColor: #303030c7;
 }
 html {
   height: 100vh;
