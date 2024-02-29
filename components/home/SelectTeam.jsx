@@ -4,11 +4,12 @@ import { useState } from "react"
 import Link from "next/link"
 import fetchTeamData from "@/helpers/fetchTeamData"
 import { SearchResult } from "./SearchResult"
+import recomendedTeams from "@/helpers/recomendatiosData"
 
 export const SelectTeam = () => {
 
     const [teamSearch, setTeamSearch] = useState('')
-    const [teamResult, setTeamResult] = useState(false)
+    const [teamResult, setTeamResult] = useState(recomendedTeams)
 
     const handleInput = (event) => {
         event.preventDefault()

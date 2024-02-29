@@ -9,8 +9,10 @@
   top: 0;
 }
 div#selectTeam {
-  background: url("https://i.ibb.co/vzLHnSy/584533.jpg");
-  background-size: cover;
+  background: url("https://i.ibb.co/YTJXDzw/fondo-app.jpg");
+  background-size:cover;
+  background-position: center;
+
 }
 
 .selectTeam__container {

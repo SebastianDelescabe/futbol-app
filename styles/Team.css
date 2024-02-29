@@ -14,7 +14,7 @@
   justify-content: space-around;
   align-items: flex-start;
   padding-top: 2rem;
-  margin: 0rem 4rem;
+  margin: 0rem 2rem;
   flex-direction: column;
 }
 .team__info-section {
@@ -24,6 +24,7 @@
 .team__info-body {
   display: flex;
   gap: 4rem;
+  width: 100%;
 }
 .team__info-header {
   display: flex;
@@ -68,6 +69,9 @@ span.leagueRank__group-title {
   color: white;
   width: 100%;
   justify-content: center;
+}
+.leagueRank__League {
+  width: 100%;
 }
 /* -------------------------------------------------------- headerCompetitionInfo --------------------------------------------------------*/
 .headerCompetitionInfo {
@@ -144,11 +148,11 @@ a.button-select-team {
   height: 30px;
 }
 .leagueRank__table {
-  max-height: calc(90vh - 400px);
+  max-height: calc(90vh - 225px);
   overflow: auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: 1.5rem;
 }
 td.leagueTeam__information span {
   width: inherit;
@@ -161,7 +165,7 @@ th {
 }
 td {
   text-align: center;
-  width: 350px;
+  width:-webkit-fill-available;
   color: var(--secondaryColor);
 }
 tr:nth-child(even) {
@@ -176,7 +180,11 @@ td.leagueTeam__information > div > span:first-child {
 .team__info h2.team__info span,
 .team__info p {
   color: var(--secondaryColor);
-  width: max-content;
+  width:-webkit-fill-available;
+}
+
+.team__info h1{
+  font-size: 22px;
 }
 .infoTeam__container-team-text > p {
   margin-top: 0.4rem;

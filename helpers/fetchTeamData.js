@@ -4,7 +4,7 @@ export default async function fetchData(query) {
             method: "GET",
             headers: {
                 "x-rapidapi-host": "v3.football.api-sports.io",
-                "x-rapidapi-key": "8b5fbf35cd73e51e95aad1bc370283ee"
+                "x-rapidapi-key": "ef58fad221ee68719ae6b7d580e3c5ff"
             }
         });
 

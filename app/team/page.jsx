@@ -30,6 +30,7 @@ export default function Team() {
         } else {
             getTeamCompetitions(teamID)
                 .then((response) => {
+                    console.log(response);
                     setCompetitionData(response[0]);
                     setAllCompetitions(response[1]);
                 });
@@ -48,9 +49,9 @@ export default function Team() {
 
     return (
         <div id="team">
-            <header className='team__header'>
+            {/*           <header className='team__header'>
                 <LiveMatchs />
-            </header>
+            </header> */}
             <section className='team__info'>
                 <div className="team__info-header">
                     {
