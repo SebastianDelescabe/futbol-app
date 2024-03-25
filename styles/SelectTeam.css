@@ -1,48 +1,30 @@
+#home{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: url('../assets//images/fondo1.jpg');
+  background-size: cover;
+}
 #selectTeam {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  height: 100vh;
-  background: var(--primaryColor);
-  width: 100vw;
-  top: 0;
+  height: 100%;
 }
-div#selectTeam {
-  background: url("https://i.ibb.co/YTJXDzw/fondo-app.jpg");
-  background-size:cover;
-  background-position: center;
-
-}
-
 .selectTeam__container {
-  background: #97979740;
-  width: 60%;
+  background: #ffffff61;
+  width: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: 25%;
-  height: 55%;
   box-shadow: rgb(255 255 255 / 24%) 0px 3px 8px;
-  border-radius: 10px;
-}
-.selectTeam__container-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 1rem;
-  cursor: pointer;
-  z-index: 10;
-  font-weight: 700;
-  color: var(--secondaryColor);
+  height:70%;
+  position: relative;
 }
 .selectTeam__container-search {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
-  top: 20px;
   width: 100%;
 }
 form.selectTeam__form {
@@ -52,17 +34,17 @@ form.selectTeam__form {
   justify-content: flex-start;
   gap: 1rem;
   width: 40%;
+  position: absolute;
+    top: 10%;
 }
 
 form.selectTeam__form > div {
   display: flex;
 }
-form.selectTeam__form > p {
-  font-weight: 900;
-  text-transform: uppercase;
-  color: var(--secondaryColor);
-  letter-spacing: 0.5px;
+form.selectTeam__form h1 {
   font-size: 15px;
+  color: var(--secondaryColor);
+  text-transform: uppercase;
 }
 .selectTeam__container-search-input {
   width: 100%;
@@ -87,11 +69,12 @@ form.selectTeam__form > p {
   top: 2px;
   cursor: pointer;
   color: var(--secondaryColor);
-  font-weight: 900;
   transition: 0.5s ease;
+  font-weight: 600;
 }
+
 .selectTeam__container-search-input button:hover {
-  color: var(--secondaryColor);
+  color: black;
   transition: 0.5s ease;
 }
 .selectTeam__container-search-input input:focus {
@@ -104,11 +87,9 @@ form.selectTeam__form > p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 4rem;
   gap: 1.5rem;
   overflow: auto;
   width: 100%;
-  height: 325px;
 }
 .selectTeam__result-container {
   display: flex;
@@ -116,21 +97,97 @@ form.selectTeam__form > p {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  display: flex;
   flex-direction: column;
-  border: 1px solid #535353;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
   padding: 1rem;
   transition: 0.5s ease;
   cursor: pointer;
   color: var(--secondaryColor);
-  background: #dddddddb;
+  background: #ffffffc7;
 }
 .selectTeam__result-container img {
   width: 95px;
 }
 .selectTeam__result {
-  width: 25%;
   cursor: pointer;
   transition: 0.5s ease;
+}
+.selectTeam__result-container-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.selectTeam__result-container{
+  width: 140px;
+  padding: 0.5rem;
+}
+
+/* NUEVA HOME */
+div#recomendations {
+  width: max-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin:1rem 0rem 0rem 1rem;
+  gap: 1rem;
+}
+#recomendations .teams__recomendations-container{
+  display: flex;
+  gap: 1rem;
+}
+#recomendations .selectTeam__result-container{
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  padding: 0rem 0.5rem;
+  align-items: center;
+  justify-content: center;
+  border: unset;
+  background-color: #ffffff70;
+  width: unset;
+}
+#recomendations .selectTeam__result-container img{
+  width: 50px;
+}
+#recomendations .selectTeam__result-container .selectTeam__result-container-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  align-items: center;
+  justify-content: center;
+  width: 115px;
+}
+
+/* CARROUSEL */
+
+.teams__recomendations-container {
+  width: inherit;
+  height: inherit;
+  position: relative;
+  left: 0;
+  top: 0;
+  animation: 25s slide infinite linear;
+  display: inline-block
+}
+#recomendations.selectTeam__result {
+  animation: primary 3s linear infinite;
+  overflow: hidden;
+  padding: 60px 0;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+}
+.teams__recomendations:hover .teams__recomendations-container {
+  animation-play-state: paused 
+}
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }

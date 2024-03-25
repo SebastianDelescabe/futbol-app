@@ -5,36 +5,39 @@ export default async function getTeamCompetitions(teamID) {
         method: "GET",
         headers: {
             "x-rapidapi-host": "v3.football.api-sports.io",
-            "x-rapidapi-key": "ef58fad221ee68719ae6b7d580e3c5ff"
+            "x-rapidapi-key": "a47085f2b2fcd66e93caad6b7d7f6b09"
         }
     });
     let searchLeague = await response.json()
 
     if (searchLeague.errors && searchLeague.errors.length != 0) {
-        alert(searchLeague.errors.requests, 'UUUUUU');
+        if(searchLeague.errors.rateLimit){
+            alert(`${searchLeague.errors.rateLimit} Error de la api disculpa las molestias :)`)
+            window.history.go(-1);
+        }
+        alert(`${searchLeague.errors.requests} Error de la api disculpa las molestias :)`)
     } else {
         //GUARDA LIGAS O COPAS QUE TRAEN INFORMACION ACTUALIZADA
         const competitionHaveStandings = searchLeague.response.filter(competition => competition.seasons[0].coverage.standings)
 
-        const allCompetitionStanding = competitionHaveStandings.map(competition => {
+        let allCompetitionStanding = competitionHaveStandings.map(competition => {
             return {
                 id: competition.league.id,
                 logo: competition.league.logo,
                 name: competition.league.name,
                 country: competition.country.name,
                 type: competition.league.type.toLowerCase(),
-                year: competition.seasons[0].year
+                year: competition.seasons[0].year,
             }
         })
 
         //FILTRA OPCIONES QUE SEAN LIGA Y QUE SE ESTEN JUGANDO ACTUAlMENTE PARA PRIMERA CARGA
         const teamLeague = searchLeague.response.filter(competition => competition.league.type.toLowerCase() == "league" && competition.seasons[0].current)
-        let leagueID = teamLeague[0].league.id;
-        let currentCompetitionYear = teamLeague[0].seasons[0].year;
+        const leagueID = teamLeague[0].league.id;
+        const currentCompetitionYear = teamLeague[0].seasons[0].year;
 
         const teamLeagueInfo = await getCompetitionInfo(leagueID, currentCompetitionYear) //TRAE ID DE LA PRIMERA LIGA (PARA PRIMERA CARGA)
-        console.log(teamLeagueInfo, 'teamLeague Info');
-
+        
         if (searchLeague && teamLeagueInfo) {
             return [teamLeagueInfo, allCompetitionStanding]
         }

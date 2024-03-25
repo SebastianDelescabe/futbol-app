@@ -1,5 +1,25 @@
 const recomendedTeams = [
     {
+      "team": {
+          "id": 435,
+          "name": "River Plate",
+          "code": "RIV",
+          "country": "Argentina",
+          "founded": 1901,
+          "national": false,
+          "logo": "https://media.api-sports.io/football/teams/435.png"
+      },
+      "venue": {
+          "id": 19570,
+          "name": "Estadio Mâs Monumental",
+          "address": "Avenida Presidente José Figueroa Alcorta 7597, Núñez",
+          "city": "Capital Federal, Ciudad de Buenos Aires",
+          "capacity": 83214,
+          "surface": "grass",
+          "image": "https://media.api-sports.io/football/venues/19570.png"
+      }
+    },
+    {
         team: {
           id: 451,
           name: 'Boca Juniors',
@@ -19,26 +39,6 @@ const recomendedTeams = [
           image: 'https://media.api-sports.io/football/venues/46.png'
         }
       },
-      {
-        "team": {
-            "id": 435,
-            "name": "River Plate",
-            "code": "RIV",
-            "country": "Argentina",
-            "founded": 1901,
-            "national": false,
-            "logo": "https://media.api-sports.io/football/teams/435.png"
-        },
-        "venue": {
-            "id": 19570,
-            "name": "Estadio Mâs Monumental",
-            "address": "Avenida Presidente José Figueroa Alcorta 7597, Núñez",
-            "city": "Capital Federal, Ciudad de Buenos Aires",
-            "capacity": 83214,
-            "surface": "grass",
-            "image": "https://media.api-sports.io/football/venues/19570.png"
-        }
-    },
     {
         "team": {
             "id": 50,

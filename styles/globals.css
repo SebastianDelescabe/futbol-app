@@ -5,12 +5,15 @@
   --secondaryColor: #303030c7;
 }
 html {
-  height: 100vh;
   overflow: hidden;
   background-color: var(--primaryColor);
   font-family: "Montserrat", sans-serif;
-  position: relative;
-  left: -7px;
+  padding: 0rem;
+  margin: 0rem;
+}
+body{
+  margin: 0rem;
+  padding: 0rem;
 }
 h1,
 p,

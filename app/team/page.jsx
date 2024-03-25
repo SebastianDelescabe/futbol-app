@@ -30,9 +30,10 @@ export default function Team() {
         } else {
             getTeamCompetitions(teamID)
                 .then((response) => {
-                    console.log(response);
-                    setCompetitionData(response[0]);
-                    setAllCompetitions(response[1]);
+                    if(response){
+                        setCompetitionData(response[0]);
+                        setAllCompetitions(response[1]);
+                    }
                 });
         }
     }, [teamID]);
@@ -56,7 +57,7 @@ export default function Team() {
                 <div className="team__info-header">
                     {
                         allCompetitions && (
-                            <HeaderCompetitionInfo data={{ allCompetitions }} />
+                            <HeaderCompetitionInfo data={{ competitionData, allCompetitions }} />
                         )
                     }
                     {
@@ -67,11 +68,11 @@ export default function Team() {
                 </div>
                 <div className="team__info-body">
                     {
-                        competitionData && (
+                        competitionData && teamID  &&(
                             competitionData.type === 'cup' ? (
-                                <CupRank data={{ competitionData }} />
+                                <CupRank data={{ competitionData,teamID }} />
                             ) : (
-                                <LeagueRank data={{ competitionData }} />
+                                <LeagueRank data={{ competitionData,teamID }} />
                             )
                         )
                     }

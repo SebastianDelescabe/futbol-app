@@ -1,6 +1,7 @@
 import { LeagueTeam } from "./LeagueTeam";
 
 export const LeagueTable = ({ data }) => {
+    const {league,teamID} = data
     return (
         <>
             <table >
@@ -19,8 +20,8 @@ export const LeagueTable = ({ data }) => {
                 </thead>
                 <tbody>
                     {
-                        data.map((team, index) => (
-                            <LeagueTeam key={index} data={team} />
+                        league.map((teamInfo, index) => (
+                            <LeagueTeam key={index} data={{teamInfo,teamID}} />
                         ))
                     }
                 </tbody>

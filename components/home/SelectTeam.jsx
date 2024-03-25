@@ -1,15 +1,13 @@
 'use client'
 
 import { useState } from "react"
-import Link from "next/link"
 import fetchTeamData from "@/helpers/fetchTeamData"
-import { SearchResult } from "./SearchResult"
-import recomendedTeams from "@/helpers/recomendatiosData"
+import { TeamHomeData } from "./TeamHomeData"
 
 export const SelectTeam = () => {
 
     const [teamSearch, setTeamSearch] = useState('')
-    const [teamResult, setTeamResult] = useState(recomendedTeams)
+    const [teamResult, setTeamResult] = useState([])
 
     const handleInput = (event) => {
         event.preventDefault()
@@ -34,12 +32,9 @@ export const SelectTeam = () => {
     return (
         <div id='selectTeam'>
             <div className='selectTeam__container'>
-                <Link href={'/team'}>
-                    <div className="selectTeam__container-close">X</div>
-                </Link>
                 <div className='selectTeam__container-search'>
                     <form onSubmit={(e) => handleSubmit(e)} className="selectTeam__form">
-                        <p>Buscar Equipo</p>
+                        <h1>Buscar Equipo</h1>
                         <div className="selectTeam__container-search-input">
                             <input onChange={(e) => handleInput(e)} type="text" />
                             <button>Buscar</button>
@@ -49,7 +44,7 @@ export const SelectTeam = () => {
                         {
                             teamResult && (
                                 teamResult.map((result, i) => (
-                                    <SearchResult key={i} data={result} />
+                                    <TeamHomeData key={result.venue.name} data={result} />
                                 ))
                             )
                         }

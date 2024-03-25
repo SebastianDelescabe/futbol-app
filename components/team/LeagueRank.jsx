@@ -3,7 +3,7 @@ import { LeagueTable } from "./LeagueTable";
 
 export const LeagueRank = ({ data }) => {
 
-    let { competitionData } = data
+    let { competitionData,teamID } = data
     let leagues = competitionData.league.standings;
 
     return (
@@ -14,16 +14,15 @@ export const LeagueRank = ({ data }) => {
                         leagues.map((league, index) => (
                             <>
                                 {//FASE DE GRUPOS
-                                    leagues.length > 1 ?
-                                        <div className="leagueRank__Group">
-                                            <span className="leagueRank__group-title">Grupo {index + 1}</span>
-                                            <LeagueTable key={index} data={league} />
-                                        </div>
-                                        :
-                                        <div className="leagueRank__League">
-                                            <LeagueTable key={index} data={league} />
-                                        </div>
-
+                                leagues.length > 1 ?
+                                    <div className="leagueRank__Group">
+                                        <span className="leagueRank__group-title">Grupo {index + 1}</span>
+                                        <LeagueTable key={index} data={{league,teamID}} />
+                                    </div>
+                                    :
+                                    <div className="leagueRank__League">
+                                        <LeagueTable key={index} data={{league,teamID}} />
+                                    </div>
                                 }
                             </>
                         ))

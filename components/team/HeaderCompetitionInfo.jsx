@@ -7,20 +7,21 @@ export const HeaderCompetitionInfo = ({ data }) => {
 
     const dispatch = useDispatch()
 
-    let { allCompetitions } = data
+    let { allCompetitions, competitionData } = data
 
-    let name = allCompetitions[0].name;
-    let country = allCompetitions[0].country;
-    let logo = allCompetitions[0].logo;
+    let name = competitionData.league.name;
+    let country = competitionData.league.country;
+    let logo = competitionData.league.logo;
+
+    //Quita competicion usada acutlamente del selector de competencias
+/*     allCompetitions = allCompetitions.filter(competition => competition.id !==  competitionData.league.id) */
 
     const handleOnSelect = async (e) => {
         e.preventDefault()
-        //BUSCA DENTRO DE LAS OPCIONES DE COMPETENCIA LA SELECCIONADA Y ENVIA DATOS NECESARIOS
         const competitionSelected = allCompetitions.filter(competition => competition.id == e.target.value)
-
         const competitionInfo = await getCompetitionInfo(competitionSelected[0].id, competitionSelected[0].year)
 
-        //GUARDA INFO EN EL REDUCER PARA LLEVARLO DE NUEVO AL HOME
+        //GUARDA INFO EN EL REDUCER PARA LLEVARLO AL HOME Y RENDERIZAR DE NUEVO
         if (competitionInfo) {
             dispatch(getCompetitionData([competitionSelected[0].id, competitionSelected[0].year]))
         }
@@ -41,9 +42,16 @@ export const HeaderCompetitionInfo = ({ data }) => {
             <form className="headerCompetitionInfo__select-competition">
                 <span>Elegir Competencia</span>
                 <select onChange={handleOnSelect} name="select-competition" id="select__team-competition">
+                    <option value='' disabled selected>Elegir Competencia</option>
                     {
                         allCompetitions && allCompetitions.map(competition => (
+                            //Ternario deshabilita competicion usada acutlamente del selector de competencias
+
+                            competition.id === competitionData.league.id ?
+                            <option value={competition.id} disabled key={competition.name}>{competition.name}</option>
+                            :
                             <option value={competition.id} key={competition.name}>{competition.name}</option>
+
                         ))
                     }
                 </select>

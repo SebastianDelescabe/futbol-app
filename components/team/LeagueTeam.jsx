@@ -1,11 +1,17 @@
 export const LeagueTeam = ({ data }) => {
-    let name = data.team.name;
-    let logo = data.team.logo;
-    let points = data.points;
-    let position = data.rank;
-    let infoPlayed = data.all;
 
-    let goalDif = [data.goalsDiff]; // [Cantidad goles a favor o en contra, color dependiendo los goles]
+    const {teamInfo,teamID} = data
+
+    let name = teamInfo.team.name;
+    let logo = teamInfo.team.logo;
+    let points = teamInfo.points;
+    let position = teamInfo.rank;
+    let infoPlayed = teamInfo.all;
+
+    //Pinta equipo elegido
+    let selectedTeam = teamInfo.team.id === teamID 
+
+    let goalDif = [teamInfo.goalsDiff]; // [Cantidad goles a favor o en contra, color dependiendo los goles]
 
     if (goalDif > 0) {
         goalDif.push('#094')
@@ -15,16 +21,17 @@ export const LeagueTeam = ({ data }) => {
         goalDif.push('black')
     }
 
+
     return (
         <>
-            <tr>
+            <tr style={selectedTeam ? {background:"#d6f9cc"}: {}}>
                 <td className="leagueTeam__information">
                     <div>
                         <span>{position}°</span>
                         <img src={logo} alt="" />
                         <span>{name}</span>
                     </div>
-                </td>
+                </td>   
                 <td>{infoPlayed.played}</td>
                 <td>{infoPlayed.win}</td>
                 <td>{infoPlayed.draw}</td>

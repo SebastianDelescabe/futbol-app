@@ -4,155 +4,18 @@ export default async function fetchData(query) {
             method: "GET",
             headers: {
                 "x-rapidapi-host": "v3.football.api-sports.io",
-                "x-rapidapi-key": "ef58fad221ee68719ae6b7d580e3c5ff"
+                "x-rapidapi-key": "a47085f2b2fcd66e93caad6b7d7f6b09"
             }
         });
 
         const data = await response.json();
-        /*         const data = {
-                    "get": "teams",
-                    "parameters": {
-                        "id": "33"
-                    },
-                    "errors": [],
-                    "results": 1,
-                    "paging": {
-                        "current": 1,
-                        "total": 1
-                    },
-                    "response": [
-                        {
-                            "team": {
-                                "id": 33,
-                                "name": "Manchester United",
-                                "code": "MUN",
-                                "country": "England",
-                                "founded": 1878,
-                                "national": false,
-                                "logo": "https://media.api-sports.io/football/teams/33.png"
-                            },
-                            "venue": {
-                                "id": 556,
-                                "name": "Old Trafford",
-                                "address": "Sir Matt Busby Way",
-                                "city": "Manchester",
-                                "capacity": 76212,
-                                "surface": "grass",
-                                "image": "https://media.api-sports.io/football/venues/556.png"
-                            },
-        
-                        },
-                        {
-                            "team": {
-                                "id": 33,
-                                "name": "Manchester United",
-                                "code": "MUN",
-                                "country": "England",
-                                "founded": 1878,
-                                "national": false,
-                                "logo": "https://media.api-sports.io/football/teams/33.png"
-                            },
-                            "venue": {
-                                "id": 556,
-                                "name": "Old Trafford",
-                                "address": "Sir Matt Busby Way",
-                                "city": "Manchester",
-                                "capacity": 76212,
-                                "surface": "grass",
-                                "image": "https://media.api-sports.io/football/venues/556.png"
-                            },
-        
-                        },
-                        {
-                            "team": {
-                                "id": 33,
-                                "name": "Manchester United",
-                                "code": "MUN",
-                                "country": "England",
-                                "founded": 1878,
-                                "national": false,
-                                "logo": "https://media.api-sports.io/football/teams/33.png"
-                            },
-                            "venue": {
-                                "id": 556,
-                                "name": "Old Trafford",
-                                "address": "Sir Matt Busby Way",
-                                "city": "Manchester",
-                                "capacity": 76212,
-                                "surface": "grass",
-                                "image": "https://media.api-sports.io/football/venues/556.png"
-                            },
-        
-                        },
-                        {
-                            "team": {
-                                "id": 33,
-                                "name": "Manchester United",
-                                "code": "MUN",
-                                "country": "England",
-                                "founded": 1878,
-                                "national": false,
-                                "logo": "https://media.api-sports.io/football/teams/33.png"
-                            },
-                            "venue": {
-                                "id": 556,
-                                "name": "Old Trafford",
-                                "address": "Sir Matt Busby Way",
-                                "city": "Manchester",
-                                "capacity": 76212,
-                                "surface": "grass",
-                                "image": "https://media.api-sports.io/football/venues/556.png"
-                            },
-        
-                        },
-                        {
-                            "team": {
-                                "id": 33,
-                                "name": "Manchester United",
-                                "code": "MUN",
-                                "country": "England",
-                                "founded": 1878,
-                                "national": false,
-                                "logo": "https://media.api-sports.io/football/teams/33.png"
-                            },
-                            "venue": {
-                                "id": 556,
-                                "name": "Old Trafford",
-                                "address": "Sir Matt Busby Way",
-                                "city": "Manchester",
-                                "capacity": 76212,
-                                "surface": "grass",
-                                "image": "https://media.api-sports.io/football/venues/556.png"
-                            },
-        
-                        },
-                        {
-                            "team": {
-                                "id": 33,
-                                "name": "Manchester United",
-                                "code": "MUN",
-                                "country": "England",
-                                "founded": 1878,
-                                "national": false,
-                                "logo": "https://media.api-sports.io/football/teams/33.png"
-                            },
-                            "venue": {
-                                "id": 556,
-                                "name": "Old Trafford",
-                                "address": "Sir Matt Busby Way",
-                                "city": "Manchester",
-                                "capacity": 76212,
-                                "surface": "grass",
-                                "image": "https://media.api-sports.io/football/venues/556.png"
-                            },
-        
-                        },
-        
-                    ]
-                } */
 
         if (data.errors && data.errors.length != 0) {
-            alert(data.errors.requests, 'AAAAA');
+            if(data.errors.rateLimit){
+                alert(`${data.errors.rateLimit} Error de la api disculpa las molestias :)`)
+                window.history.go(-1);
+            }
+            alert(`${data.errors.requests} Error de la api disculpa las molestias :)`)
         } else {
             return data;
         }
