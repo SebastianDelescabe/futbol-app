@@ -4,7 +4,7 @@ export default async function getCompetitionInfo(leagueID, currentCompetitionYea
             method: "GET",
             headers: {
                 "x-rapidapi-host": "v3.football.api-sports.io",
-                "x-rapidapi-key": "a47085f2b2fcd66e93caad6b7d7f6b09nn"
+                "x-rapidapi-key": "ff63ac8a4fa763467c5f73b4bb747473"
             }
         })
         let leagueRank = await response.json()

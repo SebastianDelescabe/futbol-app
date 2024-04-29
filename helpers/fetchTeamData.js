@@ -1,12 +1,23 @@
 export default async function fetchData(query) {
     try {
-        const response = await fetch(`https://v3.football.api-sports.io/teams?name=${query}`, {
-            method: "GET",
-            headers: {
-                "x-rapidapi-host": "v3.football.api-sports.io",
-                "x-rapidapi-key": "a47085f2b2fcd66e93caad6b7d7f6b09"
-            }
-        });
+        let response;
+        if(typeof query === 'string'){ //SEARCH
+            response = await fetch(`https://v3.football.api-sports.io/teams?name=${query}`, {
+                method: "GET",
+                headers: {
+                    "x-rapidapi-host": "v3.football.api-sports.io",
+                    "x-rapidapi-key": "ff63ac8a4fa763467c5f73b4bb747473"
+                }
+            });
+        }else{ //ELGIE EQUIPO
+            response = await fetch(`https://v3.football.api-sports.io/teams?id=${query}`, {
+                method: "GET",
+                headers: {
+                    "x-rapidapi-host": "v3.football.api-sports.io",
+                    "x-rapidapi-key": "ff63ac8a4fa763467c5f73b4bb747473"
+                }
+            });
+        }
 
         const data = await response.json();
 
