@@ -33,6 +33,7 @@
   gap: 5rem;
   width: 100%;
   justify-content: space-between;
+  aspect-ratio: 16/2;
 }
 
 /* ---------------------------LEAGUE RANK---------------------------- */
@@ -44,12 +45,11 @@
   width: 100%;
 }
 .leagueRank__Group {
-  width: 48%;
+  width: 60%;
 }
 span.leagueRank__group-title {
   text-transform: uppercase;
   color: #666;
-  margin: 1rem 0rem !important;
   display: inline-block;
   font-weight: 800;
   font-size: 19px;
@@ -62,13 +62,12 @@ span.leagueRank__group-title {
 .leagueRank__container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-  padding: 1rem 2rem;
   transition: 0.5s ease;
   color: white;
   width: 100%;
   justify-content: center;
+  margin-top: 1rem;
 }
 .leagueRank__League {
   width: 100%;
@@ -81,6 +80,7 @@ span.leagueRank__group-title {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   position: relative;
   gap: 3rem;
+  aspect-ratio: 16 / 2.5;
 }
 
 .headerCompetitionInfo span {
@@ -98,6 +98,7 @@ span.leagueRank__group-title {
 .headerCompetitionInfo img {
   width: 100px;
   height: 100px;
+  object-fit: contain;
 }
 
 .headerCompetitionInfo > span {
@@ -139,9 +140,10 @@ a.button-select-team:hover ,a.button-select-team:hover button{
 .leagueTeam__information {
   display: flex;
   justify-content: center;
+  padding: 0.8rem 1rem;
 }
 .leagueTeam__information div {
-  width: 90%;
+  width: 100%;
   text-align: left;
   display: flex;
   align-items: center;
@@ -154,16 +156,13 @@ a.button-select-team:hover ,a.button-select-team:hover button{
 .leagueTeam__information img {
   width: 30px;
   height: 30px;
+  object-fit: contain;
 }
 .leagueRank__table {
-  max-height: calc(90vh - 225px);
+  max-height: calc(90vh - 225px); 
   overflow: auto;
-  display: flex;
-  flex-wrap: wrap;
+  display: -webkit-box;
   gap: 1.5rem;
-}
-td.leagueTeam__information span {
-  width: inherit;
 }
 th {
   text-align: center;
@@ -276,4 +275,30 @@ td.leagueTeam__information > div > span:first-child {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+/* ERROR COMPONENT */
+
+.error__component{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.error__component h1{
+  font-size: 25px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.error__component a{
+  border: 1px solid black;
+  padding: 0.5rem 2rem;
+  transition: all 0.5s ease;
+}
+.error__component a:hover{
+  color: var(--secondaryColor);
+  transition: all 0.5s ease;
 }

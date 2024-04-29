@@ -23,9 +23,10 @@ export const SelectTeam = () => {
             console.log('escribir al menos 5 caracteres')
         } else {
             let resultInputSearch = await fetchTeamData(teamSearch)
+            console.log(resultInputSearch);
             //GET INFO ON INPUT
             if (resultInputSearch && resultInputSearch.results != 0) {
-                setTeamResult(resultInputSearch.response)
+                setTeamResult(resultInputSearch)
             }
         }
     }
@@ -41,13 +42,9 @@ export const SelectTeam = () => {
                         </div>
                     </form>
                     <div className="search__results">
-                        {
-                            teamResult && (
-                                teamResult.map((result, i) => (
-                                    <TeamHomeData key={result.venue.name} data={result} />
-                                ))
-                            )
-                        }
+                        {teamResult && teamResult.map((result, i) => (
+                            <TeamHomeData key={result.venue.name} data={result} />
+                        ))}
                     </div>
                 </div>
             </div>

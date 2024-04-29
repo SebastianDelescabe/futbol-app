@@ -2,6 +2,7 @@
 import { LeagueTable } from "./LeagueTable";
 
 export const LeagueRank = ({ data }) => {
+    
 
     let { competitionData,teamID } = data
     let leagues = competitionData.league.standings;

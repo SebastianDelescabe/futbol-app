@@ -5,6 +5,7 @@ import { getInfoTeam } from '../../app/redux/teams/teamSlice'
 import { useDispatch } from 'react-redux'
 
 export const TeamHomeData = ({ data }) => {
+
     const dispatch = useDispatch()
 
     let logo = data.team.logo

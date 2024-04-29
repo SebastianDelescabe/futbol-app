@@ -5,7 +5,7 @@ export default async function getTeamCompetitions(teamID) {
         method: "GET",
         headers: {
             "x-rapidapi-host": "v3.football.api-sports.io",
-            "x-rapidapi-key": "a47085f2b2fcd66e93caad6b7d7f6b09"
+            "x-rapidapi-key": "dfdb906f7d7e282404f86ed0e3145a20"
         }
     });
     let searchLeague = await response.json()
@@ -33,14 +33,18 @@ export default async function getTeamCompetitions(teamID) {
 
         //FILTRA OPCIONES QUE SEAN LIGA Y QUE SE ESTEN JUGANDO ACTUAlMENTE PARA PRIMERA CARGA
         const teamLeague = searchLeague.response.filter(competition => competition.league.type.toLowerCase() == "league" && competition.seasons[0].current)
-        const leagueID = teamLeague[0].league.id;
-        const currentCompetitionYear = teamLeague[0].seasons[0].year;
-
-        const teamLeagueInfo = await getCompetitionInfo(leagueID, currentCompetitionYear) //TRAE ID DE LA PRIMERA LIGA (PARA PRIMERA CARGA)
         
-        if (searchLeague && teamLeagueInfo) {
-            return [teamLeagueInfo, allCompetitionStanding]
+        if(teamLeague[0]){
+            const leagueID = teamLeague[0].league.id;
+            const currentCompetitionYear = teamLeague[0].seasons[0].year;
+    
+            const teamLeagueInfo = await getCompetitionInfo(leagueID, currentCompetitionYear) //TRAE ID DE LA PRIMERA LIGA (PARA PRIMERA CARGA)
+            
+            if (searchLeague && teamLeagueInfo) {
+                return [teamLeagueInfo, allCompetitionStanding]
+            }
         }
+        
     }
 
 }

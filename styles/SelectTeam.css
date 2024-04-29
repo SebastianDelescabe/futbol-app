@@ -5,6 +5,7 @@
   background: url('../assets//images/fondo1.jpg');
   background-size: cover;
 }
+
 #selectTeam {
   display: flex;
   align-items: center;

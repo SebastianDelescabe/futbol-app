@@ -13,9 +13,6 @@ export const HeaderCompetitionInfo = ({ data }) => {
     let country = competitionData.league.country;
     let logo = competitionData.league.logo;
 
-    //Quita competicion usada acutlamente del selector de competencias
-/*     allCompetitions = allCompetitions.filter(competition => competition.id !==  competitionData.league.id) */
-
     const handleOnSelect = async (e) => {
         e.preventDefault()
         const competitionSelected = allCompetitions.filter(competition => competition.id == e.target.value)
@@ -42,13 +39,11 @@ export const HeaderCompetitionInfo = ({ data }) => {
             <form className="headerCompetitionInfo__select-competition">
                 <span>Elegir Competencia</span>
                 <select onChange={handleOnSelect} name="select-competition" id="select__team-competition">
-                    <option value='' disabled selected>Elegir Competencia</option>
                     {
                         allCompetitions && allCompetitions.map(competition => (
                             //Ternario deshabilita competicion usada acutlamente del selector de competencias
-
                             competition.id === competitionData.league.id ?
-                            <option value={competition.id} disabled key={competition.name}>{competition.name}</option>
+                            <option value={competition.id} disabled selected key={competition.name}>{competition.name}</option>
                             :
                             <option value={competition.id} key={competition.name}>{competition.name}</option>
 

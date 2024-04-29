@@ -1,23 +1,25 @@
-export default async function fetchData(query) {
+export default async function fetchteamsFetch(query) {
     try {
         const response = await fetch(`https://v3.football.api-sports.io/teams?name=${query}`, {
             method: "GET",
             headers: {
                 "x-rapidapi-host": "v3.football.api-sports.io",
-                "x-rapidapi-key": "a47085f2b2fcd66e93caad6b7d7f6b09"
+                "x-rapidapi-key": "dfdb906f7d7e282404f86ed0e3145a20"
             }
         });
 
-        const data = await response.json();
+        const teamsFetch = await response.json();
 
-        if (data.errors && data.errors.length != 0) {
-            if(data.errors.rateLimit){
-                alert(`${data.errors.rateLimit} Error de la api disculpa las molestias :)`)
+        if (teamsFetch.errors && teamsFetch.errors.length != 0) {
+            if(teamsFetch.errors.rateLimit){
+                alert(`${teamsFetch.errors.rateLimit} Error de la api disculpa las molestias :)`)
                 window.history.go(-1);
             }
-            alert(`${data.errors.requests} Error de la api disculpa las molestias :)`)
+            alert(`${teamsFetch.errors.requests} Error de la api disculpa las molestias :)`)
+
         } else {
-            return data;
+            const teamsFetchWithData = teamsFetch.response.filter(team => team.venue.id)
+            return teamsFetchWithData;
         }
 
     } catch (error) {
