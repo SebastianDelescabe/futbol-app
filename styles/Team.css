@@ -72,6 +72,9 @@ span.leagueRank__group-title {
 .leagueRank__League {
   width: 100%;
 }
+.leagueRank__table tbody tr{
+  cursor: pointer;
+}
 /* -------------------------------------------------------- headerCompetitionInfo --------------------------------------------------------*/
 .headerCompetitionInfo {
   display: flex;

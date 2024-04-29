@@ -73,7 +73,7 @@ select {
   height: 32px;
   padding: 2px 5px 4px;
   vertical-align: baseline;
-  width: max-content;
+  width: 200px;
   box-sizing: border-box;
   margin-top: 0.5rem;
   cursor: pointer;

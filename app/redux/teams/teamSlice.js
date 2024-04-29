@@ -17,7 +17,7 @@ export const selectedTeam = createSlice({
         getCompetitionData: (state, action) => {
             //IFNROMACION DE LA COMPETENCIA ELEGIDA PARA ENVIAR AL HOME
             state.value.competitionSelected = action.payload;
-        },
+        }
     }
 
 })

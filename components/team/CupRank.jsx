@@ -1,5 +1,4 @@
 export const CupRank = ({ data }) => {
-    console.log(data, 'cupRank');
     let { competitionData, allCompetitions } = data
 
     return (

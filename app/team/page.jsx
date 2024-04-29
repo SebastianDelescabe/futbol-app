@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
-import { InfoTeam } from "@/components/team/InfoTeam"
+import { InfoTeam } from "@/components/team/InfoTeam";
 import { LeagueRank } from "@/components/team/LeagueRank";
 import { LiveMatchs } from "@/components/team/LiveMatchs";
 import { CupRank } from "@/components/team/CupRank";
@@ -79,3 +79,4 @@ export default function Team() {
         return <ErrorComponent />;
     }
 }
+

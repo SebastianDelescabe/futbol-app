@@ -1,15 +1,21 @@
+import { getInfoTeam } from "@/app/redux/teams/teamSlice";
+import fetchData from "@/helpers/fetchTeamData";
+import { useDispatch } from "react-redux";
+
 export const LeagueTeam = ({ data }) => {
+
+    const dispatch = useDispatch();
 
     const {teamInfo,teamID} = data
 
-    let name = teamInfo.team.name;
-    let logo = teamInfo.team.logo;
-    let points = teamInfo.points;
-    let position = teamInfo.rank;
-    let infoPlayed = teamInfo.all;
+    const name = teamInfo.team.name;
+    const logo = teamInfo.team.logo;
+    const points = teamInfo.points;
+    const position = teamInfo.rank;
+    const infoPlayed = teamInfo.all;
 
     //Pinta equipo elegido
-    let selectedTeam = teamInfo.team.id === teamID 
+    const selectedTeam = teamInfo.team.id === teamID 
 
     let goalDif = [teamInfo.goalsDiff]; // [Cantidad goles a favor o en contra, color dependiendo los goles]
 
@@ -21,10 +27,18 @@ export const LeagueTeam = ({ data }) => {
         goalDif.push('black')
     }
 
+    const handeTeamOnClick = async () => {
+        let resultOnClickTeam = await fetchData(teamInfo.team.id)
+        console.log(resultOnClickTeam);
+        //GET INFO ON INPUT
+        if (resultOnClickTeam && resultOnClickTeam.results != 0) {
+            dispatch(getInfoTeam(resultOnClickTeam.response[0]))
+        }
+    }
 
     return (
         <>
-            <tr style={selectedTeam ? {background:"#d6f9cc"}: {}}>
+            <tr onClick={handeTeamOnClick} style={selectedTeam ? {background:"#d6f9cc"}: {}}>
                 <td className="leagueTeam__information">
                     <div>
                         <span>{position}°</span>
