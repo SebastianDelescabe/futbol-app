@@ -45,7 +45,7 @@
   width: 100%;
 }
 .leagueRank__Group {
-  width: 60%;
+  width: 49%;
 }
 span.leagueRank__group-title {
   text-transform: uppercase;
@@ -83,7 +83,7 @@ span.leagueRank__group-title {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   position: relative;
   gap: 3rem;
-  aspect-ratio: 16 / 2.5;
+  aspect-ratio: 646 / 128;
 }
 
 .headerCompetitionInfo span {
@@ -166,6 +166,7 @@ a.button-select-team:hover ,a.button-select-team:hover button{
   overflow: auto;
   display: -webkit-box;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 th {
   text-align: center;
@@ -210,7 +211,7 @@ td.leagueTeam__information > div > span:first-child {
   padding: 1rem;
   transition: 0.5s ease;
   justify-content: center;
-  height: 100%;
+  height: 200px;
 }
 .infoTeam__container-team-text {
   display: flex;

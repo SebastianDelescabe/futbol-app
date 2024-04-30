@@ -1,19 +1,22 @@
 import getCompetitionInfo from "./getCompetitionInfo"
 
 export default async function getTeamCompetitions(teamID) {
+
     const response = await fetch(`https://v3.football.api-sports.io/leagues?team=${teamID}&current=true`, {
         method: "GET",
         headers: {
             "x-rapidapi-host": "v3.football.api-sports.io",
-            "x-rapidapi-key": "ff63ac8a4fa763467c5f73b4bb747473"
+            "x-rapidapi-key": process.env.API_KEY
         }
     });
     let searchLeague = await response.json()
+    console.log(searchLeague);
 
     if (searchLeague.errors && searchLeague.errors.length != 0) {
         if(searchLeague.errors.rateLimit){
             alert(`${searchLeague.errors.rateLimit} Error de la api disculpa las molestias :)`)
             window.history.go(-1);
+            return;
         }
         alert(`${searchLeague.errors.requests} Error de la api disculpa las molestias :)`)
     } else {

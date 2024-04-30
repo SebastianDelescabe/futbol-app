@@ -1,5 +1,6 @@
 import { getInfoTeam } from "@/app/redux/teams/teamSlice";
 import fetchData from "@/helpers/fetchTeamData";
+import { maxCaracter } from "@/helpers/maxCaracter";
 import { useDispatch } from "react-redux";
 
 export const LeagueTeam = ({ data }) => {
@@ -29,10 +30,10 @@ export const LeagueTeam = ({ data }) => {
 
     const handeTeamOnClick = async () => {
         let resultOnClickTeam = await fetchData(teamInfo.team.id)
-        console.log(resultOnClickTeam);
         //GET INFO ON INPUT
+        console.log(resultOnClickTeam);
         if (resultOnClickTeam && resultOnClickTeam.results != 0) {
-            dispatch(getInfoTeam(resultOnClickTeam.response[0]))
+            dispatch(getInfoTeam(resultOnClickTeam[0]))
         }
     }
 
@@ -43,7 +44,7 @@ export const LeagueTeam = ({ data }) => {
                     <div>
                         <span>{position}°</span>
                         <img src={logo} alt="" />
-                        <span>{name}</span>
+                        <span>{maxCaracter(name,19)}</span>
                     </div>
                 </td>   
                 <td>{infoPlayed.played}</td>
