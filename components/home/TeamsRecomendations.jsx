@@ -1,5 +1,5 @@
 import React from 'react'
-import recomendedTeams from '@/helpers/recomendatiosData'
+import recomendedTeams from '@/app/helpers/recomendatiosData'
 import { TeamHomeData } from './TeamHomeData'
 
 export const TeamsRecomendations = () => {

@@ -7,7 +7,7 @@ export default async function fetchteamsFetch(query) {
                 method: "GET",
                 headers: {
                     "x-rapidapi-host": "v3.football.api-sports.io",
-                    "x-rapidapi-key": process.env.API_KEY
+                    "x-rapidapi-key": `${process.env.NEXT_PUBLIC_API_KEY}`
                 }
             });
         }else{ //ELGIE EQUIPO
@@ -15,14 +15,13 @@ export default async function fetchteamsFetch(query) {
                 method: "GET",
                 headers: {
                     "x-rapidapi-host": "v3.football.api-sports.io",
-                    "x-rapidapi-key": process.env.API_KEY
+                    "x-rapidapi-key": `${process.env.NEXT_PUBLIC_API_KEY}`
                 }
             });
         }
 
         const teamsFetch = await response.json();
 
-        console.log(teamsFetch.errors);
         if (teamsFetch.errors && teamsFetch.errors.length != 0) {
             if(teamsFetch.errors.rateLimit){
                 alert(`${teamsFetch.errors.rateLimit} Error de la api disculpa las molestias :)`)

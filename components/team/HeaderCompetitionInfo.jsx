@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { useDispatch } from 'react-redux'
-import getCompetitionInfo from "@/helpers/getCompetitionInfo";
+import getCompetitionInfo from "@/app/helpers/getCompetitionInfo";
 import { getCompetitionData } from '../../app/redux/teams/teamSlice'
 
 export const HeaderCompetitionInfo = ({ data }) => {

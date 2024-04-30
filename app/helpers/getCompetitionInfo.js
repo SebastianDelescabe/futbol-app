@@ -6,11 +6,10 @@ export default async function getCompetitionInfo(leagueID, currentCompetitionYea
             method: "GET",
             headers: {
                 "x-rapidapi-host": "v3.football.api-sports.io",
-                "x-rapidapi-key": process.env.API_KEY
+                "x-rapidapi-key": `${process.env.NEXT_PUBLIC_API_KEY}`
             }
         })
         let leagueRank = await response.json()
-        console.log(leagueRank);
         
         if (leagueRank.errors && leagueRank.errors.length != 0) {
             if(leagueRank.errors.rateLimit){

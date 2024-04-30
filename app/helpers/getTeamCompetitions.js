@@ -6,11 +6,10 @@ export default async function getTeamCompetitions(teamID) {
         method: "GET",
         headers: {
             "x-rapidapi-host": "v3.football.api-sports.io",
-            "x-rapidapi-key": process.env.API_KEY
+            "x-rapidapi-key": `${process.env.NEXT_PUBLIC_API_KEY}`
         }
     });
     let searchLeague = await response.json()
-    console.log(searchLeague);
 
     if (searchLeague.errors && searchLeague.errors.length != 0) {
         if(searchLeague.errors.rateLimit){
@@ -62,7 +61,6 @@ export default async function getTeamCompetitions(teamID) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "v3.football.api-sports.io",
-            "x-rapidapi-key": "c922b3c40b00126fa178ee0518f4a3d4"
         }
     })
     let teamCompleteInfo = await data.json()

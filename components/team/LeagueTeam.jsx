@@ -1,6 +1,6 @@
 import { getInfoTeam } from "@/app/redux/teams/teamSlice";
-import fetchData from "@/helpers/fetchTeamData";
-import { maxCaracter } from "@/helpers/maxCaracter";
+import fetchData from "@/app/helpers/fetchTeamData";
+import { maxCaracter } from "@/app/helpers/maxCaracter";
 import { useDispatch } from "react-redux";
 
 export const LeagueTeam = ({ data }) => {
@@ -31,7 +31,6 @@ export const LeagueTeam = ({ data }) => {
     const handeTeamOnClick = async () => {
         let resultOnClickTeam = await fetchData(teamInfo.team.id)
         //GET INFO ON INPUT
-        console.log(resultOnClickTeam);
         if (resultOnClickTeam && resultOnClickTeam.results != 0) {
             dispatch(getInfoTeam(resultOnClickTeam[0]))
         }

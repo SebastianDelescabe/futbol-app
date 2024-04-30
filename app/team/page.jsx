@@ -8,8 +8,8 @@ import { InfoTeam } from "@/components/team/InfoTeam";
 import { LeagueRank } from "@/components/team/LeagueRank";
 import { CupRank } from "@/components/team/CupRank";
 
-import getTeamCompetitions from "@/helpers/getTeamCompetitions";
-import getCompetitionInfo from "@/helpers/getCompetitionInfo";
+import getTeamCompetitions from "@/app/helpers/getTeamCompetitions";
+import getCompetitionInfo from "@/app/helpers/getCompetitionInfo";
 import { HeaderCompetitionInfo } from "@/components/team/HeaderCompetitionInfo";
 
 export default function Team() {
@@ -29,7 +29,6 @@ export default function Team() {
     } else {
       getTeamCompetitions(teamID).then((response) => {
         if (response) {
-            console.log(response);
           setCompetitionData(response[0]);
           setAllCompetitions(response[1]);
         }

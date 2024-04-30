@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react"
-import fetchTeamData from "@/helpers/fetchTeamData"
+import fetchTeamData from "@/app/helpers/fetchTeamData"
 import { TeamHomeData } from "./TeamHomeData"
 
 export const SelectTeam = () => {
