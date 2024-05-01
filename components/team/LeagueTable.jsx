@@ -8,6 +8,7 @@ export const LeagueTable = ({ data }) => {
                 <thead>
                     <tr>
                         <th>EQUIPO</th>
+                        <th>PTS</th>
                         <th>PJ</th>
                         <th>PG</th>
                         <th>PE</th>
@@ -15,7 +16,6 @@ export const LeagueTable = ({ data }) => {
                         <th>GF</th>
                         <th>GC</th>
                         <th>DIF</th>
-                        <th>PUNTOS</th>
                     </tr>
                 </thead>
                 <tbody>
