@@ -326,7 +326,7 @@ td.leagueTeam__information > div > span:first-child {
     width: 70%;
   }
   .team__info h1{
-    font-size: 15px;
+    font-size: 17px;
     width: unset;
   }
   .infoTeam__container-text span:first-child{
@@ -336,10 +336,10 @@ td.leagueTeam__information > div > span:first-child {
     font-size: 12px;
   }
   .infoTeam__container-title > img{
-    width: 60px;
+    width: 70px;
     margin-bottom: 0.5rem;
-    left: 0;
-    top: 0;
+    left: -20px;
+    top: -15px;
   }
   .infoTeam__container-stadium-text{
     flex-direction: column;
@@ -361,7 +361,7 @@ td.leagueTeam__information > div > span:first-child {
     width: 100%;
   }
   .headerCompetitionInfo__select-competition{
-    padding: 0rem 1rem 1rem 1rem;
+    padding: 0.5rem 1rem 1rem 1rem;
   }
   span.leagueRank__group-title{
     font-size: 10px;
@@ -374,5 +374,12 @@ td.leagueTeam__information > div > span:first-child {
   }
   a.button-select-team{
     left: 30%;
+  }
+  .headerCompetitionInfo > div {
+    justify-content: flex-start;
+    padding: 1rem 0rem 0rem 1rem;
+  }
+  .headerCompetitionInfo div{
+    gap: 0.5rem 1rem;
   }
 }
