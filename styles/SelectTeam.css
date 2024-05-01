@@ -112,6 +112,7 @@ form.selectTeam__form h1 {
 .selectTeam__result {
   cursor: pointer;
   transition: 0.5s ease;
+  height: 100px;
 }
 .selectTeam__result-container-text{
   display: flex;
@@ -128,12 +129,12 @@ form.selectTeam__form h1 {
 
 /* NUEVA HOME */
 div#recomendations {
-  width: max-content;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   margin:1rem 0rem 0rem 1rem;
   gap: 1rem;
+  overflow: hidden;
 }
 #recomendations .teams__recomendations-container{
   display: flex;
@@ -190,5 +191,28 @@ div#recomendations {
   }
   to {
     transform: translateX(-100%);
+  }
+}
+
+
+@media (max-width:940px){
+  .selectTeam__container{
+    width: 100%;
+    align-items: flex-start;
+  }
+  form.selectTeam__form{
+    position: unset;
+    width: 90%;
+    margin: 1rem 0rem;
+  }
+  .selectTeam__result-container-text{
+    font-size: 13px;
+  }
+  .selectTeam__result-container img{
+    width: 40px;
+  }
+  .selectTeam__result-container{
+    width: unset;
+    padding: 0.5rem 1rem;
   }
 }

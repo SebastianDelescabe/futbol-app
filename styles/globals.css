@@ -5,7 +5,6 @@
   --secondaryColor: #303030c7;
 }
 html {
-  overflow: hidden;
   background-color: var(--primaryColor);
   font-family: "Montserrat", sans-serif;
   padding: 0rem;
@@ -73,7 +72,7 @@ select {
   height: 32px;
   padding: 2px 5px 4px;
   vertical-align: baseline;
-  width: 250px;
+  width: 100%;
   box-sizing: border-box;
   margin-top: 0.5rem;
   cursor: pointer;
