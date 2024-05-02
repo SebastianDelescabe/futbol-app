@@ -16,7 +16,7 @@
   background: #ffffff61;
   width: 70%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   box-shadow: rgb(255 255 255 / 24%) 0px 3px 8px;
   height:70%;
@@ -27,6 +27,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 100%;
 }
 form.selectTeam__form {
   display: flex;
@@ -34,9 +35,9 @@ form.selectTeam__form {
   align-items: flex-start;
   justify-content: flex-start;
   gap: 1rem;
-  width: 40%;
-  position: absolute;
-    top: 10%;
+  position: unset;
+  width: 70%;
+  margin: 1rem 0rem 2rem 0rem;
 }
 
 form.selectTeam__form > div {
@@ -84,13 +85,13 @@ form.selectTeam__form h1 {
 
 /* ---------------------------- SEARCH RESULT ----------------------------*/
 .search__results {
-  overflow: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
   gap: 1.5rem;
-  overflow: auto;
   width: 100%;
+  height: 100%;
 }
 .selectTeam__result-container {
   display: flex;
@@ -123,8 +124,11 @@ form.selectTeam__form h1 {
 }
 
 .selectTeam__result-container{
-  width: 140px;
+  width: 160px;
   padding: 0.5rem;
+}
+.selectTeam__result-container-text > span{
+  text-align: center;
 }
 
 /* NUEVA HOME */
@@ -194,16 +198,10 @@ div#recomendations {
   }
 }
 
-
 @media (max-width:940px){
   .selectTeam__container{
-    width: 100%;
-    align-items: flex-start;
-  }
-  form.selectTeam__form{
-    position: unset;
     width: 90%;
-    margin: 1rem 0rem;
+    align-items: flex-start;
   }
   .selectTeam__result-container-text{
     font-size: 13px;

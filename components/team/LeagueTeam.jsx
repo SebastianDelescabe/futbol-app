@@ -7,7 +7,7 @@ export const LeagueTeam = ({ data }) => {
 
     const dispatch = useDispatch();
 
-    const {teamInfo,teamID} = data
+    const {teamInfo,teamID,setInfoLoading} = data
 
     const name = teamInfo.team.name;
     const logo = teamInfo.team.logo;
@@ -29,7 +29,8 @@ export const LeagueTeam = ({ data }) => {
     }
 
     const handeTeamOnClick = async () => {
-        let resultOnClickTeam = await fetchData(teamInfo.team.id)
+        setInfoLoading(true)
+        const resultOnClickTeam = await fetchData(teamInfo.team.id)
         //GET INFO ON INPUT
         if (resultOnClickTeam && resultOnClickTeam.results != 0) {
             dispatch(getInfoTeam(resultOnClickTeam[0]))

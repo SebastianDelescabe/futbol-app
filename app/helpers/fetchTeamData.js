@@ -2,7 +2,7 @@ export default async function fetchteamsFetch(query) {
 
     try {
         let response;
-        if(typeof query === 'string'){ //SEARCH
+        if(typeof query === 'string'){ //BUSCA POR NOMBRE
             response = await fetch(`https://v3.football.api-sports.io/teams?name=${query}`, {
                 method: "GET",
                 headers: {
@@ -10,7 +10,7 @@ export default async function fetchteamsFetch(query) {
                     "x-rapidapi-key": `${process.env.NEXT_PUBLIC_API_KEY}`
                 }
             });
-        }else{ //ELGIE EQUIPO
+        }else{ //BUSCA POR ID 
             response = await fetch(`https://v3.football.api-sports.io/teams?id=${query}`, {
                 method: "GET",
                 headers: {
@@ -25,13 +25,12 @@ export default async function fetchteamsFetch(query) {
         if (teamsFetch.errors && teamsFetch.errors.length != 0) {
             if(teamsFetch.errors.rateLimit){
                 alert(`${teamsFetch.errors.rateLimit} Error de la api disculpa las molestias :)`)
-                window.history.go(-1);
                 return;
             }
             alert(`${teamsFetch.errors.requests} Error de la api disculpa las molestias :)`)
 
         } else {
-            const teamsFetchWithData = teamsFetch.response.filter(team => team.venue.id)
+            const teamsFetchWithData = teamsFetch.response.filter(team => team.venue.id && !team.team.national && team.team.code)
             return teamsFetchWithData;
         }
 

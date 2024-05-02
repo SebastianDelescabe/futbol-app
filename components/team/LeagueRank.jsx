@@ -4,8 +4,8 @@ import { LeagueTable } from "./LeagueTable";
 export const LeagueRank = ({ data }) => {
     
 
-    let { competitionData,teamID } = data
-    let leagues = competitionData.league.standings;
+    const { competitionData,teamID,setInfoLoading } = data
+    const leagues = competitionData.league.standings;
 
     return (
         <div id="leagueRank">
@@ -18,11 +18,11 @@ export const LeagueRank = ({ data }) => {
                                 leagues.length > 1 ?
                                     <div className="leagueRank__Group">
                                         <span className="leagueRank__group-title">Grupo {index + 1}</span>
-                                        <LeagueTable key={index} data={{league,teamID}} />
+                                        <LeagueTable key={index} data={{league,teamID,setInfoLoading}} />
                                     </div>
                                     :
                                     <div className="leagueRank__League">
-                                        <LeagueTable key={index} data={{league,teamID}} />
+                                        <LeagueTable key={index} data={{league,teamID,setInfoLoading}} />
                                     </div>
                                 }
                             </>

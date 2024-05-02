@@ -83,7 +83,7 @@ span.leagueRank__group-title {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   position: relative;
   gap: 3rem;
-  aspect-ratio: 646 / 128;
+  width: 550px;
 }
 
 .headerCompetitionInfo span {
@@ -209,7 +209,6 @@ td.leagueTeam__information > div > span:first-child {
   gap: 1rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 1rem;
-  transition: 0.5s ease;
   justify-content: center;
   height: 200px;
 }
@@ -309,6 +308,9 @@ td.leagueTeam__information > div > span:first-child {
 
 
 @media (max-width:940px){
+  .leagueRank__table {
+    max-height: unset; 
+  }
   .infoTeam__container{
     padding: unset;
     height: unset;

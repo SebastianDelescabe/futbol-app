@@ -9,12 +9,11 @@ export default async function getTeamCompetitions(teamID) {
             "x-rapidapi-key": `${process.env.NEXT_PUBLIC_API_KEY}`
         }
     });
-    let searchLeague = await response.json()
+    const searchLeague = await response.json()
 
     if (searchLeague.errors && searchLeague.errors.length != 0) {
         if(searchLeague.errors.rateLimit){
             alert(`${searchLeague.errors.rateLimit} Error de la api disculpa las molestias :)`)
-            window.history.go(-1);
             return;
         }
         alert(`${searchLeague.errors.requests} Error de la api disculpa las molestias :)`)
@@ -22,7 +21,7 @@ export default async function getTeamCompetitions(teamID) {
         //GUARDA LIGAS O COPAS QUE TRAEN INFORMACION ACTUALIZADA
         const competitionHaveStandings = searchLeague.response.filter(competition => competition.seasons[0].coverage.standings)
 
-        let allCompetitionStanding = competitionHaveStandings.map(competition => {
+        const allCompetitionStanding = competitionHaveStandings.map(competition => {
             return {
                 id: competition.league.id,
                 logo: competition.league.logo,
@@ -50,25 +49,3 @@ export default async function getTeamCompetitions(teamID) {
     }
 
 }
-
-
-/* https://v3.football.api-sports.io/LEAGUES?live=all*/
-
-/* INFO PARTIDOS EN VIVO */
-
-/* async function x() {
-    let data = await fetch("https://v3.football.api-sports.io/standings?league=39&season=2023", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "v3.football.api-sports.io",
-        }
-    })
-    let teamCompleteInfo = await data.json()
-    console.log(teamCompleteInfo)
-
-        .catch(err => {
-            console.log(err);
-        });
-
-}
-x() */

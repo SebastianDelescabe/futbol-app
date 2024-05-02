@@ -8,9 +8,9 @@ export const TeamHomeData = ({ data }) => {
 
     const dispatch = useDispatch()
 
-    let logo = data.team.logo
-    let name = data.team.name
-    let country = data.team.country
+    const logo = data.team.logo
+    const name = data.team.name
+    const country = data.team.country
 
     const handeClickResult = () => {
         dispatch(getInfoTeam(data))

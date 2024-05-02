@@ -15,7 +15,6 @@ const recomendedTeams = [
           "address": "Avenida Presidente José Figueroa Alcorta 7597, Núñez",
           "city": "Capital Federal, Ciudad de Buenos Aires",
           "capacity": 83214,
-          "surface": "grass",
           "image": "https://media.api-sports.io/football/venues/19570.png"
       }
     },
@@ -38,7 +37,7 @@ const recomendedTeams = [
           surface: 'grass',
           image: 'https://media.api-sports.io/football/venues/46.png'
         }
-      },
+    },
     {
         "team": {
             "id": 50,
@@ -55,7 +54,6 @@ const recomendedTeams = [
             "address": "Rowsley Street",
             "city": "Manchester",
             "capacity": 55097,
-            "surface": "grass",
             "image": "https://media.api-sports.io/football/venues/555.png"
         }
     },
@@ -75,7 +73,6 @@ const recomendedTeams = [
             "address": "Avenida de Concha Espina 1, Chamartín",
             "city": "Madrid",
             "capacity": 85454,
-            "surface": "grass",
             "image": "https://media.api-sports.io/football/venues/1456.png"
         }
     },
@@ -95,7 +92,6 @@ const recomendedTeams = [
             "address": "Carrer de l&apos;Estadi",
             "city": "Barcelona",
             "capacity": 55926,
-            "surface": "grass",
             "image": "https://media.api-sports.io/football/venues/19939.png"
         }
     },
@@ -115,7 +111,6 @@ const recomendedTeams = [
             "address": "Rua Professor Eurico Rabelo, Maracanã",
             "city": "Rio de Janeiro, Rio de Janeiro",
             "capacity": 78838,
-            "surface": "grass",
             "image": "https://media.api-sports.io/football/venues/204.png"
         }
     },
@@ -135,7 +130,6 @@ const recomendedTeams = [
             "address": "Calle Ricardo Enrique Bochini 751/83 esq. Alsina",
             "city": "Avellaneda, Provincia de Buenos Aires",
             "capacity": 52364,
-            "surface": "grass",
             "image": "https://media.api-sports.io/football/venues/7131.png"
         }
     },
@@ -155,7 +149,6 @@ const recomendedTeams = [
             "address": "Calle Mozart y Orestes Omar Corbatta",
             "city": "Avellaneda, Provincia de Buenos Aires",
             "capacity": 51500,
-            "surface": "grass",
             "image": "https://media.api-sports.io/football/venues/99.png"
         }
     },
@@ -175,8 +168,45 @@ const recomendedTeams = [
             "address": "Anfield Road",
             "city": "Liverpool",
             "capacity": 55212,
-            "surface": "grass",
             "image": "https://media.api-sports.io/football/venues/550.png"
+        }
+    },
+    {
+        "team": {
+            "id": 85,
+            "name": "Paris Saint Germain",
+            "code": "PAR",
+            "country": "France",
+            "founded": 1970,
+            "national": false,
+            "logo": "https://media.api-sports.io/football/teams/85.png"
+        },
+        "venue": {
+            "id": 671,
+            "name": "Parc des Princes",
+            "address": "24, rue du Commandant Guilbaud",
+            "city": "Paris",
+            "capacity": 47929,
+            "image": "https://media.api-sports.io/football/venues/671.png"
+        }
+    },
+    {
+        "team": {
+            "id": 460,
+            "name": "San Lorenzo",
+            "code": "LOR",
+            "country": "Argentina",
+            "founded": 1908,
+            "national": false,
+            "logo": "https://media.api-sports.io/football/teams/460.png"
+        },
+        "venue": {
+            "id": 103,
+            "name": "Estadio Pedro Bidegaín",
+            "address": "Avenida Perito Moreno y Avenida Varela 1437",
+            "city": "Capital Federal, Ciudad de Buenos Aires",
+            "capacity": 43494,
+            "image": "https://media.api-sports.io/football/venues/103.png"
         }
     }
 ]

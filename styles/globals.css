@@ -78,17 +78,75 @@ select {
   cursor: pointer;
 }
 
-
-
-/* LOADER CSS */
-.lds-ring {
-  display: inline-block;
-  position: relative;
+/* LOADER PRINCIPAL */
+.loader__container {
+  width: 100vw;
   height: 100vh;
+  background: #000000c7;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+}
+.lds-facebook,
+.lds-facebook div {
+  box-sizing: border-box;
+}
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: white;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0s;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+
+
+/* LOADER INFO */
+.loader__info-content {
+  height: 235px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+.lds-ring,
+.lds-ring div {
+  box-sizing: border-box;
+}
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
 }
 .lds-ring div {
   box-sizing: border-box;
@@ -97,10 +155,19 @@ select {
   width: 64px;
   height: 64px;
   margin: 8px;
-  border: 8px solid var(--secondaryColor);
+  border: 8px solid currentColor;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: var(--secondaryColor) transparent transparent transparent;
+  border-color: currentColor transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
 }
 @keyframes lds-ring {
   0% {
@@ -108,5 +175,11 @@ select {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width:940px){
+  .loader__info-content {
+    width: 100%;
   }
 }

@@ -7,11 +7,11 @@ export const HeaderCompetitionInfo = ({ data }) => {
 
     const dispatch = useDispatch()
 
-    let { allCompetitions, competitionData } = data
+    const { allCompetitions, competitionData } = data
 
-    let name = competitionData.league.name;
-    let country = competitionData.league.country;
-    let logo = competitionData.league.logo;
+    const name = competitionData.league.name;
+    const country = competitionData.league.country;
+    const logo = competitionData.league.logo;
 
     const handleOnSelect = async (e) => {
         e.preventDefault()
