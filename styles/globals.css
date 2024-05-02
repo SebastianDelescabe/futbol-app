@@ -177,9 +177,18 @@ select {
     transform: rotate(360deg);
   }
 }
+/* TOASTIFY */
+.Toastify__toast-theme--dark {
+  position: absolute;
+  top: 100px !important;
+}
 
 @media (max-width:940px){
   .loader__info-content {
     width: 100%;
   }
+  .Toastify__toast-theme--dark{
+    top: 125px;
+  }
 }
+

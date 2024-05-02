@@ -3,6 +3,8 @@
 import { useState } from "react"
 import fetchTeamData from "@/app/helpers/fetchTeamData"
 import { TeamHomeData } from "./TeamHomeData"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const SelectTeam = () => {
 
@@ -16,17 +18,23 @@ export const SelectTeam = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-
         if (teamSearch === '') {
-            console.log('escribir algo')
-        } else if (teamSearch.length < 3) {
-            console.log('escribir al menos 5 caracteres')
+            toast.warn("Porfavor escribe algo!", {
+                theme: "dark"
+            })
+        } else if (teamSearch.length < 5) {
+            toast.warn("Escribe al menos 4 caracteres!", {
+                theme: "dark"
+            })
         } else {
             let resultInputSearch = await fetchTeamData(teamSearch)
-            console.log(resultInputSearch);
             //GET INFO ON INPUT
-            if (resultInputSearch && resultInputSearch.results != 0) {
+            if (resultInputSearch && resultInputSearch.length != 0) {
                 setTeamResult(resultInputSearch)
+            }else{
+                toast.warn("No se encontró el equipo, se específico", {
+                    theme: "dark"
+                })
             }
         }
     }
@@ -41,6 +49,7 @@ export const SelectTeam = () => {
                             <button>Buscar</button>
                         </div>
                     </form>
+                    <ToastContainer />
                     <div className="search__results">
                         {teamResult && teamResult.map((result, i) => (
                             <TeamHomeData key={result.venue.name} data={result} />
