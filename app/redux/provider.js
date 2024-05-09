@@ -6,7 +6,7 @@ import store from "./store";
 const Providers = ({ children }) => {
     return <Provider store={store}>
         {children}
-    </Provider>
+    </Provider> 
 }
 
-export default Providers;
+export default Providers; 
