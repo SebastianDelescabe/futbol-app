@@ -32,9 +32,8 @@ export default async function getTeamCompetitions(teamID) {
             }
         })
 
-        //FILTRA OPCIONES QUE SEAN LIGA Y QUE SE ESTEN JUGANDO ACTUAlMENTE PARA PRIMERA CARGA
-        const teamLeague = searchLeague.response.filter(competition => competition.league.type.toLowerCase() == "league" && competition.seasons[0].current)
-        
+        //FILTRA OPCIONES QUE SEAN LIGA Y QUE SE ESTEN JUGANDO ACTUAlMENTE PARA PRIMERA CARGA .. SACO ID = 15 (MUNDIAL DE CLUBLES DA PROBLEMAS)
+        const teamLeague = searchLeague.response.filter(competition => competition.league.type.toLowerCase() == "league" && competition.seasons[0].current && competition.league.id !== 15)
         if(teamLeague[0]){
             const leagueID = teamLeague[0].league.id;
             const currentCompetitionYear = teamLeague[0].seasons[0].year;

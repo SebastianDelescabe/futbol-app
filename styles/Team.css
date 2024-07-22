@@ -30,10 +30,10 @@
   display: flex;
   align-items: flex-end;
   margin-bottom: 1rem;
-  gap: 5rem;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
   aspect-ratio: 16/2;
+  flex-direction: row-reverse;
 }
 
 /* ---------------------------LEAGUE RANK---------------------------- */
