@@ -1,387 +1,449 @@
 #team {
-  background: var(--primaryColor);
+  min-height: 100vh;
+  padding: clamp(20px, 4vw, 48px) clamp(16px, 4vw, 56px) 56px;
+  background: var(--page);
+  color: var(--ink);
 }
-.team__header {
-  background-color: red;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .team__info {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  align-items: flex-start;
-  padding-top: 2rem;
-  margin: 0rem 2rem;
+  max-width: 1360px;
   flex-direction: column;
+  gap: 26px;
+  margin: 0 auto;
 }
-.team__info-section {
-  height: 200px;
-  width: 200px;
-}
-.team__info-body {
-  display: flex;
-  gap: 4rem;
-  width: 100%;
-}
+
 .team__info-header {
-  display: flex;
-  align-items: flex-end;
-  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  align-items: stretch;
+  gap: 22px;
   width: 100%;
-  justify-content: space-around;
-  aspect-ratio: 16/2;
-  flex-direction: row-reverse;
 }
 
-/* ---------------------------LEAGUE RANK---------------------------- */
-#leagueRank {
-  background: var(--primaryColor);
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-}
-.leagueRank__Group {
-  width: 49%;
-}
-span.leagueRank__group-title {
-  text-transform: uppercase;
-  color: #666;
-  display: inline-block;
-  font-weight: 800;
-  font-size: 19px;
-  width: 100%;
-  text-align: center;
-  background-color: #7a7a7a;
-  color: white;
-  padding: 0.3rem 0rem;
-}
-.leagueRank__container {
-  display: flex;
-  flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-  transition: 0.5s ease;
-  color: white;
-  width: 100%;
-  justify-content: center;
-  margin-top: 1rem;
-}
-.leagueRank__League {
-  width: 100%;
-}
-.leagueRank__table tbody tr{
-  cursor: pointer;
-}
-/* -------------------------------------------------------- headerCompetitionInfo --------------------------------------------------------*/
 .headerCompetitionInfo {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   position: relative;
-  gap: 3rem;
-  width: 550px;
-}
-
-.headerCompetitionInfo span {
-  color: var(--secondaryColor);
-}
-
-.headerCompetitionInfo div {
   display: flex;
+  width: 100%;
+  min-height: 150px;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem 1rem;
-  height: 100%;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 28px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: 0 12px 36px rgba(16, 24, 39, 0.06);
+}
+
+.headerCompetitionInfo > div {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 2rem;
 }
 
 .headerCompetitionInfo img {
-  width: 100px;
-  height: 100px;
+  width: 85px;
+  height: 85px;
+  flex: 0 0 auto;
   object-fit: contain;
 }
 
-.headerCompetitionInfo > span {
-  padding-top: 1rem;
+.headerCompetitionInfo span,
+.team__info h1,
+.team__info p {
+  color: var(--ink);
 }
+
 .headerCompetitionInfo__text-head {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  gap: 5px;
 }
+
+.headerCompetitionInfo__text-head span:first-child {
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.headerCompetitionInfo__text-head h1 {
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.headerCompetitionInfo__text-head span:last-child {
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .headerCompetitionInfo__select-competition {
   display: flex;
+  min-width: 170px;
   flex-direction: column;
   justify-content: center;
-}
-.headerCompetitionInfo > a button {
-  padding: 0.5rem 1rem;
-  background: unset;
-  border: 1px solid black;
-  cursor: pointer;
-}
-a.button-select-team {
-  position: absolute;
-  top: -55px;
-  background: white;
-  transition: all 0.5s ease;
-}
-a.button-select-team:hover ,a.button-select-team:hover button{
-  background: var(--secondaryColor);
-  color: white;
-  transition: all 0.5s ease;
-
-}
-
-/* ---------------------------LEAGUE TEAM---------------------------- */
-.leagueTeam__container span {
-  color: var(--secondaryColor);
-}
-.leagueTeam__information {
-  display: flex;
-  justify-content: center;
-  padding: 0.8rem 1rem;
-}
-.leagueTeam__information div {
-  width: 100%;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
-}
-.leagueTeam__information > p:first-child {
-  width: 30px;
-}
-.leagueTeam__information img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-}
-.leagueRank__table {
-  max-height: calc(90vh - 225px); 
-  overflow: auto;
-  display: -webkit-box;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-th {
-  text-align: center;
-  color: var(--secondaryColor);
-  font-weight: 900;
-  text-transform: uppercase;
-}
-td {
-  text-align: center;
-  width:-webkit-fill-available;
-  color: var(--secondaryColor);
-}
-tr:nth-child(even) {
-  background: #e9e8e8;
-}
-td.leagueTeam__information > div > span:first-child {
-  width: 25px;
-}
-
-/* --------------------------INFO TEAM --------------------------*/
-.team__info h1,
-.team__info h2.team__info span,
-.team__info p {
-  color: var(--secondaryColor);
-  width:-webkit-fill-available;
-}
-
-.team__info h1{
-  font-size: 20px;
-  text-wrap: pretty;
-    width: 200px;
-    text-align: center;
-}
-.infoTeam__container-team-text > p {
-  margin-top: 0.4rem;
+  gap: 8px;
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 12px;
   font-weight: 700;
 }
+
+.headerCompetitionInfo__select-competition select {
+  max-width: 240px;
+  min-height: 42px;
+  padding: 0 34px 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background-color: #fff;
+  color: var(--ink);
+}
+
+a.button-select-team {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  border-radius: 11px;
+  background: var(--navy);
+  color: #fff;
+  text-decoration: none;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+a.button-select-team:hover {
+  transform: translateY(-2px);
+  background: #1d3150;
+}
+
+a.button-select-team button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+.team__info-body {
+  width: 100%;
+}
+
+#infoTeam {
+  min-width: 0;
+}
+
 .infoTeam__container {
   display: flex;
-  gap: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 1rem;
-  justify-content: center;
-  height: 200px;
-}
-.infoTeam__container-team-text {
-  display: flex;
-  align-items: center;
+  min-height: 245px;
   flex-direction: column;
-  gap: 0.3rem;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: 0 12px 36px rgba(16, 24, 39, 0.06);
 }
-.infoTeam__container-stadium-text > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  width: 340px;
-}
-.infoTeam__container-stadium-text > div > img {
-  width: 80px;
-}
-.infoTeam__container-stadium-text > img {
-  width: 225px;
-}
-.infoTeam__container-text {
-  gap: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.infoTeam__container-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.infoTeam__container-text span:first-child {
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 17px;
-  color: var(--secondaryColor);
-}
-.infoTeam__container-title > img {
-  width: 85px;
-  position: absolute;
-  left: -59px;
-  top: -30px;
-  transition: 0.5s ease;
-}
-.infoTeam__container-title > img:hover {
-  transform: scale(1.1);
-}
-.infoTeam__container-text span {
-  text-align: center;
-}
-.infoTeam__container-text h1 {
-  text-transform: uppercase;
-  font-size: 20px;
-  font-weight: 900;
-}
-.infoTeam__container-stadium-text {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  position: relative;
-}
+
 .infoTeam__container > a {
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
-
-/* ERROR COMPONENT */
-
-.error__component{
-  height: 100vh;
+.infoTeam__container-stadium-text {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2rem;
+  gap: 18px;
 }
-.error__component h1{
-  font-size: 25px;
-  font-weight: 500;
+
+.infoTeam__container-stadium-text > div {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.infoTeam__container-team-text,
+.infoTeam__container-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.infoTeam__container-text span:first-child {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-.error__component a{
-  border: 1px solid black;
-  padding: 0.5rem 2rem;
-  transition: all 0.5s ease;
-}
-.error__component a:hover{
-  color: var(--secondaryColor);
-  transition: all 0.5s ease;
+
+.infoTeam__container-text h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
+.infoTeam__container-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-@media (max-width:940px){
-  .leagueRank__table {
-    max-height: unset; 
+.infoTeam__container-title > img,
+.infoTeam__container-stadium-text > div > img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.infoTeam__container-stadium-text > img {
+  width: min(44%, 190px);
+  height: 125px;
+  border-radius: 14px;
+  background: #f0f3f5;
+  object-fit: cover;
+}
+
+.infoTeam__container-stadium-text p,
+.infoTeam__container-team-text > p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+#leagueRank {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: 0 12px 36px rgba(16, 24, 39, 0.06);
+}
+
+.leagueRank__container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  color: var(--ink);
+}
+
+.leagueRank__Group,
+.leagueRank__League {
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+}
+
+span.leagueRank__group-title {
+  display: block;
+  padding: 12px 16px;
+  background: #f4f7f1;
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.leagueRank__table {
+  display: block;
+  max-height: min(72vh, 840px);
+  overflow: auto;
+}
+
+.leagueRank__table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.leagueRank__table thead {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  background: #fbfcfd;
+}
+
+.leagueRank__table th {
+  padding: 11px 8px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.leagueRank__table td {
+  padding: 10px 8px;
+  border-top: 1px solid #edf0f3;
+  color: var(--ink-soft);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.leagueRank__table tbody tr {
+  cursor: pointer;
+  transition: background 140ms ease;
+}
+
+.leagueRank__table tbody tr:hover,
+.leagueRank__table tbody tr:nth-child(even) {
+  background: #f8fafb;
+}
+
+.leagueTeam__information {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 12px !important;
+  text-align: left !important;
+}
+
+.leagueTeam__information > p:first-child {
+  width: 22px;
+  margin: 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+.leagueTeam__information > div {
+  display: flex;
+  min-width: 120px;
+  align-items: center;
+  gap: 8px;
+}
+
+.leagueTeam__information img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
+.leagueTeam__information span {
+  color: var(--ink-soft);
+  font-weight: 650;
+}
+
+.error__component {
+  display: flex;
+  min-height: 70vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 28px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.error__component h1 {
+  margin: 0;
+  font-size: clamp(21px, 4vw, 30px);
+  font-weight: 700;
+}
+
+.error__component a {
+  padding: 11px 18px;
+  border-radius: 11px;
+  background: var(--navy);
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 920px) {
+  #team {
+    padding: 20px 16px 40px;
   }
-  .infoTeam__container{
-    padding: unset;
-    height: unset;
-  }
-  .team__info{
-    margin: 0 1rem;
-    padding: unset;
-  }
+
   .team__info-header {
-    flex-direction: column-reverse;
-    margin-top: 1rem;
+    grid-template-columns: 1fr;
   }
-  .infoTeam__container-stadium-text > img{
-    height: 100%;
-    width: 70%;
-  }
-  .team__info h1{
-    font-size: 17px;
-    width: unset;
-  }
-  .infoTeam__container-text span:first-child{
-    font-size: 13px;
-  }
-  .infoTeam__container-text span{
-    font-size: 12px;
-  }
-  .infoTeam__container-title > img{
-    width: 70px;
-    margin-bottom: 0.5rem;
-    left: -20px;
-    top: -15px;
-  }
-  .infoTeam__container-stadium-text{
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 0rem;
-  }
-  div#infoTeam {
-    display: flex;
+
+  .headerCompetitionInfo {
     width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
   }
-  .headerCompetitionInfo{
-    gap: unset; 
-    aspect-ratio: unset;
-    flex-direction: column;
-    padding: 0rem;
-    width: 100%;
+
+  .team__info-body {
+    grid-template-columns: 1fr;
   }
-  .headerCompetitionInfo__select-competition{
-    padding: 0.5rem 1rem 1rem 1rem;
+
+  .infoTeam__container {
+    min-height: 0;
   }
-  span.leagueRank__group-title{
-    font-size: 10px;
+
+  .leagueRank__table {
+    max-height: 70vh;
   }
-  .leagueRank__Group {
-    width: 100%;
+}
+
+@media (max-width: 560px) {
+  .team__info {
+    gap: 16px;
   }
-  td{
-    width: 240px;
+
+  .headerCompetitionInfo {
+    gap: 14px;
+    padding: 18px;
+    border-radius: 18px;
   }
-  a.button-select-team{
-    left: 30%;
-  }
+
   .headerCompetitionInfo > div {
-    justify-content: flex-start;
-    padding: 1rem 0rem 0rem 1rem;
+    gap: 12px;
   }
-  .headerCompetitionInfo div{
-    gap: 0.5rem 1rem;
+
+  .headerCompetitionInfo img {
+    width: 54px;
+    height: 54px;
+  }
+
+  .headerCompetitionInfo__text-head span:first-child {
+    font-size: 16px;
+  }
+
+  .headerCompetitionInfo__select-competition {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .headerCompetitionInfo__select-competition select {
+    max-width: none;
+  }
+
+  .infoTeam__container,
+  #leagueRank {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .infoTeam__container-stadium-text {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .infoTeam__container-stadium-text > img {
+    width: 100%;
+    height: 150px;
+  }
+
+  .leagueRank__table {
+    overflow-x: auto;
   }
 }

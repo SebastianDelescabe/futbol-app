@@ -26,10 +26,8 @@ export const HeaderCompetitionInfo = ({ data }) => {
 
     return (
         <div className="headerCompetitionInfo">
-            <Link href='/' className="button-select-team">
-                <button>Cambiar Equipo</button>
-            </Link>
             <div>
+                <div>
                 <img src={logo} alt="" />
                 <div className="headerCompetitionInfo__text-head">
                     <h1>{name}</h1>
@@ -51,8 +49,10 @@ export const HeaderCompetitionInfo = ({ data }) => {
                     }
                 </select>
             </form>
+            </div>
+            <Link href='/' className="button-select-team">
+                <button>Cambiar Equipo</button>
+            </Link>
         </div>
     );
 }
-
-

@@ -1,7 +1,9 @@
 import getCompetitionInfo from "./getCompetitionInfo"
+import { handleApiError, notifyNetworkError } from "./handleApiError";
 
 export default async function getTeamCompetitions(teamID) {
 
+    try {
     const response = await fetch(`https://v3.football.api-sports.io/leagues?team=${teamID}&current=true`, {
         method: "GET",
         headers: {
@@ -11,13 +13,8 @@ export default async function getTeamCompetitions(teamID) {
     });
     const searchLeague = await response.json()
 
-    if (searchLeague.errors && searchLeague.errors.length != 0) {
-        if(searchLeague.errors.rateLimit){
-            alert(`${searchLeague.errors.rateLimit} Error de la api disculpa las molestias :)`)
-            return;
-        }
-        alert(`${searchLeague.errors.requests} Error de la api disculpa las molestias :)`)
-    } else {
+    if (handleApiError(response, searchLeague, "No pudimos cargar las competencias de este equipo. Probá de nuevo en unos minutos.")) return null;
+
         //GUARDA LIGAS O COPAS QUE TRAEN INFORMACION ACTUALIZADA
         const competitionHaveStandings = searchLeague.response.filter(competition => competition.seasons[0].coverage.standings)
 
@@ -45,6 +42,10 @@ export default async function getTeamCompetitions(teamID) {
             }
         }
         
+    } catch (error) {
+        console.error("Error loading team competitions:", error);
+        notifyNetworkError();
+        return null;
     }
 
 }

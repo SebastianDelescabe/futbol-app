@@ -3,10 +3,10 @@
 import { Provider } from "react-redux";
 import store from "./store";
 
-const Providers = ({ children }) => {
-    return <Provider store={store}>
+const Providers = ({ children }) => (
+    <Provider store={store}>
         {children}
-    </Provider> 
-}
+    </Provider>
+)
 
 export default Providers; 

@@ -1,4 +1,6 @@
 
+import { handleApiError, notifyNetworkError } from "./handleApiError";
+
 export default async function getCompetitionInfo(leagueID, currentCompetitionYear) {
 
     try {
@@ -11,17 +13,13 @@ export default async function getCompetitionInfo(leagueID, currentCompetitionYea
         })
         const leagueRank = await response.json()
         
-        if (leagueRank.errors && leagueRank.errors.length != 0) {
-            if(leagueRank.errors.rateLimit){
-                alert(`${leagueRank.errors.rateLimit} Error de la api disculpa las molestias :)`)
-                return;
-            }
-            alert(`${leagueRank.errors.requests} Error de la api disculpa las molestias :)`)
-        }else{
-            return leagueRank.response[0]
-        }
+        if (handleApiError(response, leagueRank, "No pudimos cargar la tabla de posiciones. Probá de nuevo en unos minutos.")) return null;
+
+        return leagueRank.response[0];
 
     } catch (error) {
-        console.log(error);
+        console.error("[API-Football] No se pudo completar la solicitud de posiciones", error);
+        notifyNetworkError();
+        return null;
     }
 }

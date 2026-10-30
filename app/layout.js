@@ -4,6 +4,7 @@ import '../styles/SelectTeam.css'
 import { Analytics } from "@vercel/analytics/react"
 import { Inter } from 'next/font/google'
 import Providers from './redux/provider';
+import ToastNotifications from '@/components/ToastNotifications';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
         <Providers>
           {children}
         </Providers>
+        <ToastNotifications />
       </body>
     </html >
   )

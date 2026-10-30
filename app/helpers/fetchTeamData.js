@@ -1,9 +1,12 @@
+import { handleApiError, notifyNetworkError } from "./handleApiError";
+
 export default async function fetchteamsFetch(query) {
 
     try {
         let response;
         if(typeof query === 'string'){ //BUSCA POR NOMBRE
-            response = await fetch(`https://v3.football.api-sports.io/teams?name=${query}`, {
+            const params = new URLSearchParams({ search: query.trim() });
+            response = await fetch(`https://v3.football.api-sports.io/teams?${params}`, {
                 method: "GET",
                 headers: {
                     "x-rapidapi-host": "v3.football.api-sports.io",
@@ -21,21 +24,13 @@ export default async function fetchteamsFetch(query) {
         }
 
         const teamsFetch = await response.json();
+        if (handleApiError(response, teamsFetch, "No pudimos buscar equipos en este momento. Probá de nuevo en unos minutos.")) return null;
 
-        if (teamsFetch.errors && teamsFetch.errors.length != 0) {
-            if(teamsFetch.errors.rateLimit){
-                alert(`${teamsFetch.errors.rateLimit} Error de la api disculpa las molestias :)`)
-                return;
-            }
-            alert(`${teamsFetch.errors.requests} Error de la api disculpa las molestias :)`)
-
-        } else {
-            const teamsFetchWithData = teamsFetch.response.filter(team => team.venue.id && !team.team.national && team.team.code)
-            return teamsFetchWithData;
-        }
+        return teamsFetch.response.filter(team => team.team && !team.team.national && team.venue);
 
     } catch (error) {
         console.error("Error fetching data:", error);
+        notifyNetworkError();
         return null;
     }
 }
