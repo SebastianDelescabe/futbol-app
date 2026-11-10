@@ -52,7 +52,7 @@ export const HeaderCompetitionInfo = ({ data }) => {
             </div>
             {competitionData.usedFallbackSeason && (
                 <p className="team-season-warning" role="status">
-                    Tu plan gratuito de API-Football no incluye la temporada {competitionData.requestedSeason}. Se muestra la tabla de {competitionData.league.season}.
+                    El plan gratuito solo muestra la tabla de {competitionData.league.season}.
                 </p>
             )}
             <Link href='/' className="button-select-team">

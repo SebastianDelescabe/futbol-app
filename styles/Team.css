@@ -121,7 +121,7 @@ a.button-select-team {
   padding: 0 16px;
   border-radius: 11px;
   background: var(--navy);
-  color: #fff;
+  color: #fff !important;
   text-decoration: none;
   transition: transform 160ms ease, background 160ms ease;
 }
