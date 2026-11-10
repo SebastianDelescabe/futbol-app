@@ -13,12 +13,14 @@ export const TeamHomeData = ({ data }) => {
     const country = data.team.country
 
     const handeClickResult = () => {
+        // Conserva la selección si el deploy hace una navegación con recarga completa.
+        sessionStorage.setItem('selectedTeam', JSON.stringify(data))
         dispatch(getInfoTeam(data))
     }
 
     return (
-        <div onClick={() => handeClickResult()} className="selectTeam__result">
-            <Link href={'/team'}>
+        <div className="selectTeam__result">
+            <Link href={'/team'} onClick={handeClickResult}>
                 <div className="selectTeam__result-container">
                     <div className='selectTeam__result-container-text'>
                         <span><strong>{name}</strong></span>
