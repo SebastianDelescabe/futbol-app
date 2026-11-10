@@ -4,7 +4,10 @@ import { handleApiError, notifyNetworkError } from "./handleApiError";
 export default async function getCompetitionInfo(leagueID, currentCompetitionYear) {
 
     try {
-        const response = await fetch(`https://v3.football.api-sports.io/standings?league=${leagueID}&season=${currentCompetitionYear}`, {
+        // El plan Free de API-Football solo permite consultar temporadas hasta 2024.
+        const season = Math.min(Number(currentCompetitionYear), 2024);
+        const usedFallbackSeason = season !== Number(currentCompetitionYear);
+        const response = await fetch(`https://v3.football.api-sports.io/standings?league=${leagueID}&season=${season}`, {
             method: "GET",
             headers: {
                 "x-rapidapi-host": "v3.football.api-sports.io",
@@ -15,7 +18,13 @@ export default async function getCompetitionInfo(leagueID, currentCompetitionYea
         
         if (handleApiError(response, leagueRank, "No pudimos cargar la tabla de posiciones. Probá de nuevo en unos minutos.")) return null;
 
-        return leagueRank.response[0];
+        if (!leagueRank.response?.[0]) return null;
+
+        return {
+            ...leagueRank.response[0],
+            usedFallbackSeason,
+            requestedSeason: Number(currentCompetitionYear),
+        };
 
     } catch (error) {
         console.error("[API-Football] No se pudo completar la solicitud de posiciones", error);

@@ -19,26 +19,6 @@ const recomendedTeams = [
       }
     },
     {
-        team: {
-          id: 451,
-          name: 'Boca Juniors',
-          code: 'BOC',
-          country: 'Argentina',
-          founded: 1905,
-          national: false,
-          logo: 'https://media.api-sports.io/football/teams/451.png'
-        },
-        venue: {
-          id: 46,
-          name: 'Estadio Alberto José Armando',
-          address: 'Brandsen 805, La Boca',
-          city: 'Ciudad de Buenos Aires',
-          capacity: 49000,
-          surface: 'grass',
-          image: 'https://media.api-sports.io/football/venues/46.png'
-        }
-    },
-    {
         "team": {
             "id": 50,
             "name": "Manchester City",

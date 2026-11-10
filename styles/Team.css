@@ -36,6 +36,16 @@
   box-shadow: 0 12px 36px rgba(16, 24, 39, 0.06);
 }
 
+.team-season-warning {
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  border-left: 4px solid #d99a16;
+  border-radius: 4px;
+  background: #fff4d6;
+  color: #5b430c;
+  font-size: 0.95rem;
+}
+
 .headerCompetitionInfo > div {
   display: flex;
   min-width: 0;

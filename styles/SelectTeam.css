@@ -226,6 +226,7 @@ form.selectTeam__form {
   font-weight: 800;
   letter-spacing: 0.02em;
   transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+  text-transform: uppercase;
 }
 
 .selectTeam__container-search-input button:hover {
